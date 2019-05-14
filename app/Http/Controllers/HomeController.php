@@ -67,8 +67,4 @@ class HomeController extends Controller
         $post->delete();
         return redirect()->route('home')->with('success', 'Post has been deleted successfully!');
     }
-
-    public function updateSideMenu($menu_id) {
-        return redirect()->route('home')->with('menu_id', $menu_id);
-    }
 }
