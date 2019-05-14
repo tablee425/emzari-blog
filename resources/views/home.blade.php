@@ -1,17 +1,29 @@
 @extends('layouts.master')
 
+@section('title')
+    Emzari Blog
+@endsection
+
 @section('content')
     <div class="container-fluid">
         <div class="row">
             <nav class="col-sm-3 col-md-2 d-none d-sm-block bg-light sidebar">
                 <ul class="nav nav-pills flex-column">
                     <li class="nav-item">
-                        <a class="nav-link active" href="#">Post <span class="sr-only">(current)</span></a>
+                        @if(Session::has('menu_id') && Session::get('menu_id') == 1)
+                            <a class="nav-link active" href="{{ route('home.sidemenu', ['menu_id' => 1]) }}">Post</a>
+                        @else
+                            <a class="nav-link" href="{{ route('home.sidemenu', ['menu_id' => 1]) }}">Post</a>
+                        @endif
                     </li>
                 </ul>
                 <ul class="nav nav-pills flex-column">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Nav item again</a>
+                        @if(Session::has('menu_id') && Session::get('menu_id') == 2)
+                            <a class="nav-link active" href="{{ route('home.sidemenu', ['menu_id' => 2]) }}">Nav Item Again</a>
+                        @else
+                            <a class="nav-link" href="{{ route('home.sidemenu', ['menu_id' => 2]) }}">Nav Item Again</a>
+                        @endif
                     </li>
                 </ul>
             </nav>
