@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    <main role="main" class="container"  style="margin-top: 5px">
+    <main role="main" class="container"  style="margin-top: 15px">
         <div class="row">
             <div class="col-sm-8 blog-main">
                @foreach($posts as $post)

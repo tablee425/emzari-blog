@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light rounded">
+<nav class="navbar navbar-expand-lg navbar-light bg-info px-5">
     <a class="navbar-brand" href="http://localhost/home">Home</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample09" aria-controls="navbarsExample09" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>

@@ -5,6 +5,11 @@
     <title>@yield('title')</title>
     <link rel="stylesheet" href="{{ URL::to('css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ URL::to('css/dashboard.css') }}">
+    <style>
+        body {
+            font-family: 'Comic Sans MS';
+        }
+    </style>
     @yield('styles')
 </head>
 <body>
