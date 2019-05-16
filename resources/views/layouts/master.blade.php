@@ -13,7 +13,8 @@
     
     <style>
         body {
-            font-family: 'Comic Sans MS';
+            font-family: 'Times';
+            background: #eaf2ff;
         }
         .affix {
             top: 0;
@@ -49,7 +50,7 @@
             left: 5%;
             height: auto;
             bottom: -10px;
-            background: white;
+            background: #eaf2ff;
             padding: 10px;
         }
     </style>

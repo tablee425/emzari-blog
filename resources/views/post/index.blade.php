@@ -12,7 +12,7 @@
                     @foreach($posts as $post)
                         <ol class="list-unstyled">
                             <div class="post-container">
-                                <img class="posts-thumb" src="https://blogreactor.com/wp-content/uploads/2019/05/step_4-356x220.jpg">
+                                <img class="posts-thumb" src="{{ URL::asset('img/feature-img5.jpg') }}">
                                 <div class="blog-post posts-1">
                                     <h2 class="blog-post-title" style="color: blue;">{{ $post->title }}</h2>
                                     <p class="blog-post-meta"><small><i>{{ Carbon\Carbon::parse($post->created_at)->format('d-m-Y')  }} by <a href="#">{{ $post->name }}</a></i></small></p>
@@ -38,7 +38,7 @@
                             <ol class="list-unstyled">
                                 <a href="{{ route('post.read', ['post_id' => $archive->id]) }}">
                                     <div class="post-container">
-                                        <img class="entry-thumb" src="https://blogreactor.com/wp-content/uploads/2019/05/login-356x220.jpg">
+                                        <img class="entry-thumb" src="{{ URL::asset('img/d2.jpg') }}">
                                         <div class="text-block">
                                             {!! \Illuminate\Support\Str::words($archive->title, 6, '...') !!}
                                         </div>
