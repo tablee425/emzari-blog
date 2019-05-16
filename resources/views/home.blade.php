@@ -17,7 +17,7 @@
             <div class="col-sm-9 ml-sm-auto col-md-10 pt-3">
                 <div class="tab-content" id="v-pills-tabContent">
                 
-                    <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+                    <div class="tab-pane fade in active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
                         <h1>Posts
                             <a href="{{ route('post.form') }}">
                                 <button type="button" class="btn btn-primary btn-sm">Create Post</button>

@@ -10,6 +10,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
+    
     <style>
         body {
             font-family: 'Comic Sans MS';
@@ -21,6 +22,35 @@
         }
         .affix + .container-fluid {
             padding-top: 70px;
+        }
+        .posts-thumb {
+            width: 95%;
+            height: auto;
+        }
+        .entry-thumb {
+            max-width: 100%;
+            height: auto;
+            opacity: 0.5;
+        }
+        .post-container {
+            position: relative;
+        }
+        .text-block {
+            position: absolute;
+            color: red;
+            width: 100%;
+            height: auto;
+            text-align: center;
+            bottom: 10px;
+        }
+        .posts-1 {
+            position: absolute;
+            width: 85%;
+            left: 5%;
+            height: auto;
+            bottom: -10px;
+            background: white;
+            padding: 10px;
         }
     </style>
     @yield('styles')
