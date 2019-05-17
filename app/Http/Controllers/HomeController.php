@@ -7,6 +7,8 @@ use App\Post;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
 
 class HomeController extends Controller
 {
@@ -36,22 +38,20 @@ class HomeController extends Controller
     }
 
     public function createPost(Request $request){
+        $file = $request->file('image');
+        $file_uuid = Str::uuid();
+        if ($file) {
+            Storage::disk('public')->put('blog', $file);
+        } else {
+            $file_uuid = '';
+        }
         $post = Post::create(array(
             'title' => Input::get('title'),
             'description' => Input::get('description'),
+            'image' => $file_uuid,
             'author' => Auth::user()->id
         ));
-        return redirect()->route('home')->with('success', 'Post has been successfully added!');
-    }
-
-    public function createPost1(Request $request){
-        // $post = Post::create(array(
-        //     'title' => Input::get('title'),
-        //     'description' => Input::get('description'),
-        //     'author' => Auth::user()->id
-        // ));
-        // return redirect()->route('home')->with('success', 'Post has been successfully added!');
-        return redirect()->route('post.form1')->with('upload-status', 'Post has been successfully added!');
+        return redirect()->route('home')->with('success', 'Post has been successfully added!');    
     }
 
     public function getPost($id){

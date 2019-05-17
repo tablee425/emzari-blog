@@ -19,7 +19,7 @@
                 
                     <div class="tab-pane fade in active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
                         <h1>Posts
-                            <a href="{{ route('post.form') }}">
+                            <a href="{{ route('post.getform') }}">
                                 <button type="button" class="btn btn-primary btn-sm">Create Post</button>
                             </a>
                         </h1>
@@ -63,7 +63,7 @@
 
                     <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
                         <h1>Posts2
-                            <a href="{{ route('post.form') }}">
+                            <a href="{{ route('post.getform') }}">
                                 <button type="button" class="btn btn-primary btn-sm">Create Post</button>
                             </a>
                         </h1>
