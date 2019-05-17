@@ -39,19 +39,23 @@ class HomeController extends Controller
 
     public function createPost(Request $request){
         $file = $request->file('image');
-        $file_uuid = Str::uuid();
-        if ($file) {
-            Storage::disk('public')->put('blog', $file);
+        if ($this->is_image($file)) {
+            $file_uuid = Str::uuid().'.'.$file->getClientOriginalExtension();
+            if ($file) {
+                Storage::disk('public')->put($file_uuid, file_get_contents($file));
+            } else {
+                $file_uuid = '';
+            }
+            $post = Post::create(array(
+                'title' => Input::get('title'),
+                'description' => Input::get('description'),
+                'image' => $file_uuid,
+                'author' => Auth::user()->id
+            ));
+            return redirect()->route('home')->with('success', 'Post has been successfully added!');        
         } else {
-            $file_uuid = '';
+            return back()->with('Failed', 'Please upload the image file.');
         }
-        $post = Post::create(array(
-            'title' => Input::get('title'),
-            'description' => Input::get('description'),
-            'image' => $file_uuid,
-            'author' => Auth::user()->id
-        ));
-        return redirect()->route('home')->with('success', 'Post has been successfully added!');    
     }
 
     public function getPost($id){
@@ -76,5 +80,17 @@ class HomeController extends Controller
         $post = Post::find($id);
         $post->delete();
         return redirect()->route('home')->with('success', 'Post has been deleted successfully!');
+    }
+
+    function is_image($path)
+    {
+        $a = getimagesize($path);
+        $image_type = $a[2];
+        
+        if(in_array($image_type , array(IMAGETYPE_GIF , IMAGETYPE_JPEG ,IMAGETYPE_PNG , IMAGETYPE_BMP)))
+        {
+            return true;
+        }
+        return false;
     }
 }

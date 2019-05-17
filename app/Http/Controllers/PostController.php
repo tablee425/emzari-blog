@@ -5,8 +5,8 @@ use Illuminate\Support\Facades\DB;
 class PostController extends Controller
 {
     public function getIndex() {
-        $posts = DB::table('users')->leftjoin('posts', 'users.id', '=', 'posts.author')->paginate(10);
-        $archives = DB::table('posts')->orderBy('id', 'DESC')->get();
+        $posts = DB::table('users')->leftjoin('posts', 'users.id', '=', 'posts.author')->paginate(5);
+        $archives = DB::table('posts')->orderBy('id', 'DESC')->take(3)->get();
         $data = array(
             'posts' => $posts,
             'archives' => $archives
@@ -14,7 +14,7 @@ class PostController extends Controller
         return view('post/index', $data);
     }
     public function getFullPost($post_id) {
-        $post = DB::table('users')->leftjoin('posts', 'users.id', '=', 'posts.author')->where('posts.id', '=', $post_id)->first();
+        $post = DB::table('posts')->leftjoin('users', 'users.id', '=', 'posts.author')->where('posts.id', '=', $post_id)->first();
         return view('post/read', ['post' => $post]);
     }
 }

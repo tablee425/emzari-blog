@@ -20,6 +20,9 @@
                         <div class="form-group">
                             <label for="name">Image</label>
                             <input type="file" name="image" class="btn btn-default" id="importFile" />
+                            @if(Session::has('Failed'))
+                                <label for="name" style="color: red;">{{ Session::get('Failed') }}</label>
+                            @endif
                         </div>
                         <div class="form-group">
                             <label for="description">Description</label>

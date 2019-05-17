@@ -5,14 +5,14 @@
 @endsection
 
 @section('content')
-    <main role="main" class="container"  style="margin-top: 70px">
+    <main role="main" class="container" style="margin-top: 70px">
         <section>
             <div class="row">
                 <div class="col-sm-8">
                     @foreach($posts as $post)
                         <ol class="list-unstyled">
                             <div class="post-container">
-                                <img class="posts-thumb" src="{{ URL::asset('img/feature-img5.jpg') }}">
+                                <img class="posts-thumb" src="{{ URL::asset('uploads/'.$post->image) }}">
                                 <div class="blog-post posts-1">
                                     <h2 class="blog-post-title" style="color: blue;">{{ $post->title }}</h2>
                                     <p class="blog-post-meta"><small><i>{{ Carbon\Carbon::parse($post->created_at)->format('d-m-Y')  }} by <a href="#">{{ $post->name }}</a></i></small></p>
@@ -22,14 +22,14 @@
                                         <p>
                                             <a href="{{ route('post.read', ['post_id' => $post->id]) }}" class="btn btn-primary btn-sm">Read more</a> </p>
                                     </blockquote>
-                                </div><!-- /.blog-post -->
+                                </div>
                             </div>
                         </ol>
                     @endforeach
                     <nav class="blog-pagination">
                         {{ $posts->links() }}
                     </nav>
-                </div><!-- /.blog-main -->
+                </div>
 
                 <aside class="col-sm-4">
                     <div class="sidebar-module">
@@ -38,7 +38,7 @@
                             <ol class="list-unstyled">
                                 <a href="{{ route('post.read', ['post_id' => $archive->id]) }}">
                                     <div class="post-container">
-                                        <img class="entry-thumb" src="{{ URL::asset('img/d2.jpg') }}">
+                                        <img class="entry-thumb" src="{{ URL::asset('uploads/'.$archive->image) }}">
                                         <div class="text-block">
                                             {!! \Illuminate\Support\Str::words($archive->title, 6, '...') !!}
                                         </div>
@@ -48,8 +48,8 @@
                             </ol>
                         @endforeach
                     </div>
-                </aside><!-- /.blog-sidebar -->
-            </div><!-- /.row -->
+                </aside>
+            </div>
         </section>
-    </main><!-- /.container -->
+    </main>
 @endsection
