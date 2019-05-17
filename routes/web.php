@@ -18,6 +18,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/author/post', 'HomeController@getPostForm')->name('post.form');
 Route::post('/author/post', 'HomeController@createPost')->name('post.form');
+Route::post('/author/post', 'HomeController@createPost1')->name('post.form1');
 Route::get('/author/post/detail/{id}', 'HomeController@getPost')->name('post.detail');
 Route::get('/author/post/edit/{id}', 'HomeController@editPost')->name('post.edit');
 Route::post('/author/post/edit/{id}', 'HomeController@updatePost')->name('post.update');
