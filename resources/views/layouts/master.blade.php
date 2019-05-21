@@ -59,8 +59,8 @@
 <body>
     @include('partials.header')
     @yield('content')
-    <div id="footer" style="width: 100%; height: 300px; background: #fafafa; margin-top: 150px;">
-    </div>
+    <!-- <div id="footer" style="width: 100%; height: 300px; background: #fafafa; margin-top: 150px;">
+    </div> -->
 
     <script type="text/javascript" src="{{ URL::to('js/jquery.min.js') }}"></script>
     <script type="text/javascript" src="{{ URL::to('js/bootstrap.min.js') }}"></script>
