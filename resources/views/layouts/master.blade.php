@@ -13,8 +13,11 @@
     
     <style>
         body {
-            font-family: 'Times';
-            background: #eaf2ff;
+            font-family: 'Roboto',sans-serif;
+            background: #f0f0f0;
+        }
+        .container {
+            
         }
         .affix {
             top: 0;
@@ -24,34 +27,93 @@
         .affix + .container-fluid {
             padding-top: 70px;
         }
-        .posts-thumb {
-            width: 95%;
-            height: auto;
-        }
-        .entry-thumb {
-            max-width: 100%;
-            height: auto;
-            opacity: 0.5;
-        }
         .post-container {
+            display: flex;
+            padding: 20px;
+        }
+        .post-title {
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            color: #555;
+            font-size: 18px;
+            font-weight: 700;
+            line-height: normal;
+        }
+        .post-date {
+            color: #999;
+            line-height: 1.6em;
+            font-size: 11px;
+            margin: 5px 0;
+        }
+        .post-body-dot {
+            color: #999;
+            font-size: 85%;
+            line-height: 1.6;
+            margin: 0 0 8px 0;
+            text-overflow: ellipsis;
+            overflow: hidden;
+        }
+        .posts-thumb {
+            width: 180px;
+            height: 160px;
+        }
+        .post-info {
+            padding-left: 10px;
+        }
+        .post-bottom-line {
+            border-bottom: 1px dotted rgba(0,0,0,0.16);
+        }
+        .post-list-read-more {
+            border: 1px solid rgba(0,0,0,0.06);
+            padding: 5px 8px;
+            line-height: normal;
+            float: left;
+            font-size: 11px;
+            color: #999;
+        }
+        .post-list-read-more:hover {
+            background: #ccc;
+            color: #fff;
+        }
+        .widget-title {
+            background: #fff;
+            position: relative;
+            text-transform: uppercase;
+        }
+        .right-side-title {
+            position: relative;
+            font-size: 13px;
+            padding: 15px 20px;
+            margin: 0;
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+            font-weight: 700;
+            line-height: normal;
+        }
+        .widget-content {
+            background: #fff;
+            margin: 0;
+            padding: 12px 20px;
+            overflow: hidden;
+            padding-bottom: 5px;
+        }
+        .item-thumbnail-only {
+            display: flex;
+            padding: .7em 0!important;
+            border: 0;
+            position: relative;
+            border-bottom: 1px dotted rgba(0,0,0,0.2);
+        }
+        .item-thumbnail-only-last {
+            display: flex;
+            padding: .7em 0!important;
+            border: 0;
             position: relative;
         }
-        .text-block {
-            position: absolute;
-            color: red;
-            width: 100%;
-            height: auto;
-            text-align: center;
-            bottom: 10px;
-        }
-        .posts-1 {
-            position: absolute;
-            width: 85%;
-            left: 5%;
-            height: auto;
-            bottom: -10px;
-            background: #eaf2ff;
-            padding: 10px;
+        .item-title {
+            color: #555;
+            font-size: 12px;
+            margin-left: 10px;
         }
     </style>
     @yield('styles')

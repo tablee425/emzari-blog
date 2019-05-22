@@ -8,44 +8,62 @@
     <main role="main" class="container" style="margin-top: 70px">
         <section>
             <div class="row">
-                <div class="col-sm-8">
+                <div class="col-sm-7 offset-sm-1" style="background: white; padding-left: 0px; padding-right: 0px;">
                     @foreach($posts as $post)
-                        <ol class="list-unstyled">
-                            <div class="post-container">
-                                <img class="posts-thumb" src="{{ URL::asset('uploads/'.$post->image) }}">
-                                <div class="blog-post posts-1">
-                                    <h2 class="blog-post-title" style="color: blue;">{{ $post->title }}</h2>
-                                    <p class="blog-post-meta"><small><i>{{ Carbon\Carbon::parse($post->created_at)->format('d-m-Y')  }} by <a href="#">{{ $post->name }}</a></i></small></p>
-
-                                    <p style="color: gray;">{!! \Illuminate\Support\Str::words($post->description, 30, '...') !!}</p>
-                                    <blockquote>
-                                        <p>
-                                            <a href="{{ route('post.read', ['post_id' => $post->id]) }}" class="btn btn-primary btn-sm">Read more</a> </p>
-                                    </blockquote>
-                                </div>
+                        <div class="post-container">
+                            <img class="posts-thumb" src="{{ URL::asset('uploads/'.$post->image) }}">
+                            <div class="post-info">
+                                <div class="post-title">{{ $post->title }}</div>
+                                <div class="post-date">{{ Carbon\Carbon::parse($post->created_at)->format('d-m-Y')  }} by <a href="#">{{ $post->name }}</a></div>
+                                <div class="post-body-dot">{!! \Illuminate\Support\Str::words($post->description, 30, '...') !!}</div>
+                                <a href="{{ route('post.read', ['post_id' => $post->id]) }}" class="post-list-read-more">Read More</a>
                             </div>
-                        </ol>
+                        </div>
+                        <div class="post-bottom-line"></div>
                     @endforeach
-                    <nav class="blog-pagination">
+                    <nav class="blog-pagination" style="padding-left: 20px;">
                         {{ $posts->links() }}
                     </nav>
                 </div>
 
-                <aside class="col-sm-4">
-                    <div class="sidebar-module">
-                        <h4>Recent Posts</h4>
+                <aside class="col-sm-3" style="margin-left: 10px; padding-left: 0px; padding-right: 0px;">
+                    <div class="widget-title">
+                        <div class="right-side-title">CLOUD LABELS</div>
+                    </div>
+                    <div class="widget-content" style="padding-bottom: 15px;">
+                        <span class="badge badge-default">Tech</span>
+                        <span class="badge badge-primary">Video</span>
+                        <span class="badge badge-secondary">Foods</span>
+                        <span class="badge badge-success">Labels</span>
+                        <span class="badge badge-danger">Blogger</span>
+                    </div>
+
+                    <div class="widget-title" style="margin-top: 10px;">
+                        <div class="right-side-title">RECENT POSTS</div>
+                    </div>
+                    <div class="widget-content">
                         @foreach($archives as $archive)
-                            <ol class="list-unstyled">
-                                <a href="{{ route('post.read', ['post_id' => $archive->id]) }}">
-                                    <div class="post-container">
-                                        <img class="entry-thumb" src="{{ URL::asset('uploads/'.$archive->image) }}">
-                                        <div class="text-block">
-                                            {!! \Illuminate\Support\Str::words($archive->title, 6, '...') !!}
-                                        </div>
+                            @if($loop->last)
+                                <div class="item-thumbnail-only-last">
+                                    <div class="item-thumbnail">
+                                        <img alt="Youtube Responsive Video" height="72" src="{{ URL::asset('uploads/'.$archive->image) }}" width="72">
                                     </div>
-                                    
-                                </a>
-                            </ol>
+                                    <div class="item-title">
+                                        <a href="{{ route('post.read', ['post_id' => $archive->id]) }}" title="Youtube Responsive Video">{!! \Illuminate\Support\Str::words($archive->title, 6, '...') !!}
+                                        </a>
+                                    </div>
+                                </div>
+                            @else
+                                <div class="item-thumbnail-only">
+                                    <div class="item-thumbnail">
+                                        <img alt="Youtube Responsive Video" height="72" src="{{ URL::asset('uploads/'.$archive->image) }}" width="72">
+                                    </div>
+                                    <div class="item-title">
+                                        <a href="{{ route('post.read', ['post_id' => $archive->id]) }}" title="Youtube Responsive Video">{!! \Illuminate\Support\Str::words($archive->title, 6, '...') !!}
+                                        </a>
+                                    </div>
+                                </div>
+                            @endif
                         @endforeach
                     </div>
                 </aside>
