@@ -15,6 +15,9 @@ class PostController extends Controller
     }
     public function getFullPost($post_id) {
         $post = DB::table('posts')->leftjoin('users', 'users.id', '=', 'posts.author')->where('posts.id', '=', $post_id)->first();
-        return view('post/read', ['post' => $post]);
+
+        $archives = DB::table('posts')->orderBy('id', 'DESC')->take(3)->get();
+
+        return view('post/read', ['post' => $post, 'archives' => $archives]);
     }
 }

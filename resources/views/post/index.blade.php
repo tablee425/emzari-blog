@@ -6,7 +6,7 @@
 
 @section('content')
     <main role="main" class="container" style="margin-top: 70px">
-        <section>
+        <section style="margin-top: 10px;">
             <div class="row">
                 <div class="col-sm-7 offset-sm-1" style="background: white; padding-left: 0px; padding-right: 0px;">
                     @foreach($posts as $post)
@@ -31,6 +31,7 @@
                         <div class="right-side-title">CLOUD LABELS</div>
                     </div>
                     <div class="widget-content" style="padding-bottom: 15px;">
+                        <a href="{{ route('index') }}"><span class="badge badge-default">All</span></a>
                         <span class="badge badge-default">Tech</span>
                         <span class="badge badge-primary">Video</span>
                         <span class="badge badge-secondary">Foods</span>

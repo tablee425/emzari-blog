@@ -6,7 +6,7 @@
 
 @section('content')
     <div class="container-fluid">
-        <div class="row">
+        <div class="row" style="margin-top: 10px;">
 
             <main role="main" class="col-sm-9 ml-sm-auto col-md-10 pt-3">
                 <h1>{{ $post->title }}</h1>
