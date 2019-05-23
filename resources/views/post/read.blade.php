@@ -8,12 +8,20 @@
     <main role="main" class="container"  style="margin-top: 70px">
         <section style="margin-top: 10px;">
             <div class="row">
-                <div class="col-sm-7 offset-sm-1" style="background: white; padding-left: 0px; padding-right: 0px;">
+                <div class="col-sm-7 offset-sm-1" style="background: white; padding: 20px;">
                     <div class="blog-post">
-                        <h2 class="blog-post-title">{{ $post->title }}</h2>
-                        <p class="blog-post-meta"><small><i>{{ Carbon\Carbon::parse($post->created_at)->format('d-m-Y')  }} by <a href="#">{{ $post->name }}</a></i></small></p>
-                        <p>{{ $post->description }}</p>
+                        <h2 class="post-title">{{ $post->title }}</h2>
+                        <p class="post-date-border"><small><i>{{ Carbon\Carbon::parse($post->created_at)->format('d-m-Y')  }} by <a href="#">{{ $post->name }}</a></i></small></p>
+                        <img class="post-img" src="{{ URL::asset('uploads/'.$post->image) }}">
+                        <div class="post-desc">{{ $post->description }}</div>
                     </div>
+
+                    <form class="text-center border border-light p-5 m-5">
+                        <p class="h4 mb-4">SUBSCRIBE TO OUR NEWSLETTER</p>
+                        <input type="text" id="defaultSubscriptionFormPassword" class="form-control mb-4" placeholder="Name">
+                        <input type="email" id="defaultSubscriptionFormEmail" class="form-control mb-4" placeholder="E-mail">
+                        <button class="btn btn-info btn-block" type="submit">Submit</button>
+                    </form>
                 </div>
 
                 <aside class="col-sm-3" style="margin-left: 10px; padding-left: 0px; padding-right: 0px;">

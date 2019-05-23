@@ -21,7 +21,7 @@
                         </div>
                         <div class="post-bottom-line"></div>
                     @endforeach
-                    <nav class="blog-pagination" style="padding-left: 20px;">
+                    <nav class="" style="padding-left: 20px;">
                         {{ $posts->links() }}
                     </nav>
                 </div>

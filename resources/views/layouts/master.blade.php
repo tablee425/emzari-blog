@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="{{ URL::to('css/dashboard.css') }}">
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
@@ -115,14 +116,36 @@
             font-size: 12px;
             margin-left: 10px;
         }
+        .post-date-border {
+            background: #fafafa;
+            display: block;
+            padding: 10px;
+            color: #999;
+            font-size: 12px;
+            overflow: hidden;
+            margin: 20px 0;
+            border: 1px solid #f0f0f0;
+        }
+        .post-desc {
+            margin-top: 20px;
+        }
+        .post-img {
+            width: 100%;
+            height: auto;
+        }
+        .page-item.active .page-link {
+            z-index: 1;
+            color: #fff;
+            background-color: #e64c3c;
+            border-color: transparent;
+        }
     </style>
     @yield('styles')
 </head>
 <body>
     @include('partials.header')
     @yield('content')
-    <!-- <div id="footer" style="width: 100%; height: 300px; background: #fafafa; margin-top: 150px;">
-    </div> -->
+    @include('partials.footer')
 
     <script type="text/javascript" src="{{ URL::to('js/jquery.min.js') }}"></script>
     <script type="text/javascript" src="{{ URL::to('js/bootstrap.min.js') }}"></script>
