@@ -2,15 +2,23 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>@yield('title')</title>
+
     <link rel="stylesheet" href="{{ URL::to('css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ URL::to('css/dashboard.css') }}">
+    <link rel="stylesheet" href="{{ URL::to('css/summernote.min.css') }}">
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.css" rel="stylesheet">
 
+    <script type="text/javascript" src="{{ URL::to('js/jquery.min.js') }}"></script>
+    <script src="{{ URL::to('js/bootstrap.3.4.min.js') }}"></script>
+    <script src="{{ URL::to('js/tether.min.js') }}" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="{{ URL::to('dist/js/bootstrap.min.js') }}"></script>
+    <script src="{{ URL::to('js/ie10-viewport-bug-workaround.js') }}"></script>
+    <script type="text/javascript" src="{{ URL::to('js/summernote.js') }}"></script>
     
     <style>
         body {
@@ -18,7 +26,6 @@
             background: #f0f0f0;
         }
         .container {
-            
         }
         .affix {
             top: 0;
@@ -139,6 +146,17 @@
             background-color: #e64c3c;
             border-color: transparent;
         }
+        textarea {
+    		display: block;
+    		margin-left: auto;
+    		margin-right: auto;
+        }
+        .modal {
+            padding-top: 150px;
+        }
+        .modal-title {
+            display: none;
+        }
     </style>
     @yield('styles')
 </head>
@@ -146,9 +164,6 @@
     @include('partials.header')
     @yield('content')
     @include('partials.footer')
-
-    <script type="text/javascript" src="{{ URL::to('js/jquery.min.js') }}"></script>
-    <script type="text/javascript" src="{{ URL::to('js/bootstrap.min.js') }}"></script>
     @yield('scripts')
 </body>
 </html>

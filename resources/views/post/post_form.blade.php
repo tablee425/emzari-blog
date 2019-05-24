@@ -6,7 +6,7 @@
 
 @section('content')
     <div class="container-fluid">
-        <form method="post" action="{{ route('post.createform') }}" enctype="multipart/form-data">
+        <!-- <form method="post" action="{{ route('post.createform') }}" enctype="multipart/form-data">
             <div class="row">
                 <main role="main" class="col-sm-9 ml-sm-auto col-md-10 pt-3">
                     <h1>Create Post</h1>
@@ -32,6 +32,25 @@
                     </div>
                 </main>
             </div>
-        </form>
+        </form> -->
+
+        <div class="d-flex justify-content-center">
+            <div class="col-sm-8">
+                <h1>Create Post</h1>
+                <form action="{{route('summernotePersist')}}" method="POST">
+                    {{ csrf_field() }}
+                    <textarea name="summernoteInput" class="summernote"></textarea>
+                    <br>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
     </div>
+
+    <script>
+        $(document).ready(function() {
+            $('.summernote').summernote({ height: 350 });
+        });
+    </script>
+
 @endsection

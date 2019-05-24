@@ -13,6 +13,10 @@
 
 Route::get('/', 'PostController@getIndex')->name('index');
 
+Route::get('/summernote','SummernoteController@getIndex');
+Route::post('/summernote','SummernoteController@store')->name('summernotePersist');
+Route::get('/summernote_display','SummernoteController@show')->name('summernoteDispay');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
