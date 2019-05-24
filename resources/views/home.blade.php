@@ -6,108 +6,80 @@
 
 @section('content')
     <main role="main" class="container" style="margin-top: 70px">
-        <section>
+        <section style="margin-top: 10px;">
             <div class="row">
-                <!-- <div class="col-sm-3 col-md-2 d-none d-sm-block bg-light sidebar">
-                    <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                        <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Post</a>
-                        <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">New Item Again</a>
-                    </div>
-                </div> -->
-
-                <div class="col-sm-9 ml-sm-auto col-md-10 pt-3">
-                    <div class="tab-content" id="v-pills-tabContent">
-                    
-                        <div class="tab-pane fade in active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
-                            <h1>Posts
-                                <a href="{{ route('post.getform') }}">
-                                    <button type="button" class="btn btn-primary btn-sm">Create Post</button>
-                                </a>
-                            </h1>
-                            @if(Session::has('success'))
-                                <div class="row">
-                                    <div class="col-sm-6 col-md-4 col-md-offset-4 col-sm-offset-3">
-                                        <div id="message" class="alert alert-success">
-                                            {{ Session::get('success') }}
-                                        </div>
-                                    </div>
-                                </div>
-                            @endif
-                            <table class="table table-striped table-hover">
-                                <thead>
-                                <tr>
-                                    <th>#</th>
-                                    <th>Title</th>
-                                    <th>Author</th>
-                                    <th>Learn more</th>
-                                    <th>Created on</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                @if($posts)
-                                    @foreach($posts as $post)
-                                        <tr>
-                                            <th>{{ $loop->iteration }}</th>
-                                            <td>{{ $post->title }}</td>
-                                            <td>{{ $post->name }}</td>
-                                            <td>
-                                                <a href="{{ route('post.detail', ['id' => $post->id]) }}">view more</a>
-                                            </td>
-                                            <td>{{ Carbon\Carbon::parse($post->created_at)->format('d-m-Y')  }}</td>
-                                        </tr>
-                                    @endforeach
-                                @else
-                                    <p class="text-center text-primary">No Posts created Yet!</p>
-                                @endif
-                            </table>
+                <div class="col-sm-7 offset-sm-1" style="background: white; padding-left: 0px; padding-right: 0px;">
+                    @foreach($posts as $post)
+                        <div class="post-container">
+                            <img class="posts-thumb" src="{{ URL::asset('uploads/'.$post->image) }}">
+                            <div class="post-info">
+                                <div class="post-title">{{ $post->title }}</div>
+                                <div class="post-date">{{ Carbon\Carbon::parse($post->created_at)->format('d-m-Y')  }} by <a href="#">{{ $post->name }}</a></div>
+                                <div class="post-body-dot">{!! \Illuminate\Support\Str::words($post->description, 30, '...') !!}</div>
+                                <a href="{{ route('post.read', ['post_id' => $post->id]) }}" class="post-list-read-more">Read More</a>
+                            </div>
                         </div>
+                        <div class="post-bottom-line"></div>
+                    @endforeach
+                    <nav class="" style="padding-left: 20px;">
+                        {{ $posts->links() }}
+                    </nav>
+                </div>
 
-                        <!-- <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
-                            <h1>Posts2
-                                <a href="{{ route('post.getform') }}">
-                                    <button type="button" class="btn btn-primary btn-sm">Create Post</button>
-                                </a>
-                            </h1>
-                            @if(Session::has('success'))
-                                <div class="row">
-                                    <div class="col-sm-6 col-md-4 col-md-offset-4 col-sm-offset-3">
-                                        <div id="message" class="alert alert-success">
-                                            {{ Session::get('success') }}
-                                        </div>
+                <aside class="col-sm-3" style="margin-left: 10px; padding-left: 0px; padding-right: 0px;">
+                    <div class="widget-title">
+                        <div class="right-side-title">ABOUT ME</div>
+                    </div>
+                    <div class="widget-content" style="padding-bottom: 15px;">
+                        <img src="{{ URL::asset('uploads/56d0fe75-0315-4c22-8a16-0fcb76e40ca4.jpg') }}" style="width: 100%; height: auto;" >
+                        <div class="font-weight-bold" style="margin-top: 10px;">Emzari Chabashvili</div>
+                        <div class="font-weight-bold" style="margin-top: 10px;">Posted: 3</div>
+                        <a href="{{ route('post.getform') }}">
+                            <button type="button" class="btn btn-primary btn-sm" style="margin-top: 10px;">Create New Post</button>
+                        </a>
+                    </div>
+
+                    <div class="widget-title" style="margin-top: 10px;">
+                        <div class="right-side-title">CLOUD LABELS</div>
+                    </div>
+                    <div class="widget-content" style="padding-bottom: 15px;">
+                        <a href="{{ route('index') }}"><span class="badge badge-default">All</span></a>
+                        <span class="badge badge-default">Tech</span>
+                        <span class="badge badge-primary">Video</span>
+                        <span class="badge badge-secondary">Foods</span>
+                        <span class="badge badge-success">Labels</span>
+                        <span class="badge badge-danger">Blogger</span>
+                    </div>
+
+                    <div class="widget-title" style="margin-top: 10px;">
+                        <div class="right-side-title">RECENT POSTS</div>
+                    </div>
+                    <div class="widget-content">
+                        @foreach($archives as $archive)
+                            @if($loop->last)
+                                <div class="item-thumbnail-only-last">
+                                    <div class="item-thumbnail">
+                                        <img alt="Youtube Responsive Video" height="72" src="{{ URL::asset('uploads/'.$archive->image) }}" width="72">
+                                    </div>
+                                    <div class="item-title">
+                                        <a href="{{ route('post.read', ['post_id' => $archive->id]) }}" title="Youtube Responsive Video">{!! \Illuminate\Support\Str::words($archive->title, 6, '...') !!}
+                                        </a>
+                                    </div>
+                                </div>
+                            @else
+                                <div class="item-thumbnail-only">
+                                    <div class="item-thumbnail">
+                                        <img alt="Youtube Responsive Video" height="72" src="{{ URL::asset('uploads/'.$archive->image) }}" width="72">
+                                    </div>
+                                    <div class="item-title">
+                                        <a href="{{ route('post.read', ['post_id' => $archive->id]) }}" title="Youtube Responsive Video">{!! \Illuminate\Support\Str::words($archive->title, 6, '...') !!}
+                                        </a>
                                     </div>
                                 </div>
                             @endif
-                            <table class="table table-striped table-hover">
-                                <thead>
-                                <tr>
-                                    <th>#</th>
-                                    <th>Title</th>
-                                    <th>Author</th>
-                                    <th>Learn more</th>
-                                    <th>Created on</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                @if($posts)
-                                    @foreach($posts as $post)
-                                        <tr>
-                                            <th>{{ $loop->iteration }}</th>
-                                            <td>{{ $post->title }}</td>
-                                            <td>{{ $post->name }}</td>
-                                            <td>
-                                                <a href="{{ route('post.detail', ['id' => $post->id]) }}">view more</a>
-                                            </td>
-                                            <td>{{ Carbon\Carbon::parse($post->created_at)->format('d-m-Y')  }}</td>
-                                        </tr>
-                                    @endforeach
-                                @else
-                                    <p class="text-center text-primary">No Posts created Yet!</p>
-                                @endif
-                            </table>
-                        </div> -->
-                        
+                        @endforeach
                     </div>
-                </div>
+                </aside>
             </div>
         </section>
     </main>

@@ -29,8 +29,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $posts = DB::table('users')->leftjoin('posts', 'users.id', '=', 'posts.author')->paginate(10);
-        return view('home', ['posts' => $posts]);
+        $posts = DB::table('users')->leftjoin('posts', 'users.id', '=', 'posts.author')->paginate(7);
+        $archives = DB::table('posts')->orderBy('id', 'DESC')->take(3)->get();
+        return view('home', ['posts' => $posts, 'archives' => $archives]);
     }
 
     public function getPostForm() {
