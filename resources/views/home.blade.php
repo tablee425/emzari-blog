@@ -16,7 +16,7 @@
                                 <div class="post-title">{{ $post->title }}</div>
                                 <div class="post-date">{{ Carbon\Carbon::parse($post->created_at)->format('d-m-Y')  }} by <a href="#">{{ $post->name }}</a></div>
                                 <div class="post-body-dot">{!! \Illuminate\Support\Str::words($post->description, 30, '...') !!}</div>
-                                <a href="{{ route('post.read', ['post_id' => $post->id]) }}" class="post-list-read-more">Read More</a>
+                                <a href="{{ route('post.detail', ['id' => $post->id]) }}" class="post-list-read-more">Read More</a>
                             </div>
                         </div>
                         <div class="post-bottom-line"></div>
@@ -33,7 +33,7 @@
                     <div class="widget-content" style="padding-bottom: 15px;">
                         <img src="{{ URL::asset('uploads/56d0fe75-0315-4c22-8a16-0fcb76e40ca4.jpg') }}" style="width: 100%; height: auto;" >
                         <div class="font-weight-bold" style="margin-top: 10px;">Emzari Chabashvili</div>
-                        <div class="font-weight-bold" style="margin-top: 10px;">Posted: 3</div>
+                        <div class="font-weight-bold" style="margin-top: 10px;">Posted: {{ $count }}</div>
                         <a href="{{ route('post.getform') }}">
                             <button type="button" class="btn btn-primary btn-sm" style="margin-top: 10px;">Create New Post</button>
                         </a>
@@ -62,7 +62,7 @@
                                         <img alt="Youtube Responsive Video" height="72" src="{{ URL::asset('uploads/'.$archive->image) }}" width="72">
                                     </div>
                                     <div class="item-title">
-                                        <a href="{{ route('post.read', ['post_id' => $archive->id]) }}" title="Youtube Responsive Video">{!! \Illuminate\Support\Str::words($archive->title, 6, '...') !!}
+                                        <a href="{{ route('post.detail', ['id' => $post->id]) }}" title="Youtube Responsive Video">{!! \Illuminate\Support\Str::words($archive->title, 6, '...') !!}
                                         </a>
                                     </div>
                                 </div>
@@ -72,7 +72,7 @@
                                         <img alt="Youtube Responsive Video" height="72" src="{{ URL::asset('uploads/'.$archive->image) }}" width="72">
                                     </div>
                                     <div class="item-title">
-                                        <a href="{{ route('post.read', ['post_id' => $archive->id]) }}" title="Youtube Responsive Video">{!! \Illuminate\Support\Str::words($archive->title, 6, '...') !!}
+                                        <a href="{{ route('post.detail', ['id' => $post->id]) }}" title="Youtube Responsive Video">{!! \Illuminate\Support\Str::words($archive->title, 6, '...') !!}
                                         </a>
                                     </div>
                                 </div>
