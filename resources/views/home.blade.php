@@ -32,7 +32,7 @@
                     </div>
                     <div class="widget-content" style="padding-bottom: 15px;">
                         <img src="{{ URL::asset('uploads/56d0fe75-0315-4c22-8a16-0fcb76e40ca4.jpg') }}" style="width: 100%; height: auto;" >
-                        <div class="font-weight-bold" style="margin-top: 10px;">Emzari Chabashvili</div>
+                        <div class="font-weight-bold" style="margin-top: 10px;">{{ Auth::user()->name }}</div>
                         <div class="font-weight-bold" style="margin-top: 10px;">Posted: {{ $count }}</div>
                         <a href="{{ route('post.getform') }}">
                             <button type="button" class="btn btn-primary btn-sm" style="margin-top: 10px;">Create New Post</button>

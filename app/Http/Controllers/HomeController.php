@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Summernote;
 use Illuminate\Http\Request;
 use App\Post;
 use Illuminate\Support\Facades\Auth;
@@ -45,25 +46,62 @@ class HomeController extends Controller
         return view('post/post_form');
     }
 
-    public function createPost(Request $request){
-        $file = $request->file('image');
-        if ($this->is_image($file)) {
-            $file_uuid = Str::uuid().'.'.$file->getClientOriginalExtension();
-            if ($file) {
-                Storage::disk('public')->put($file_uuid, file_get_contents($file));
-            } else {
-                $file_uuid = '';
-            }
-            $post = Post::create(array(
-                'title' => Input::get('title'),
-                'description' => Input::get('description'),
-                'image' => $file_uuid,
-                'author' => Auth::user()->id
-            ));
-            return redirect()->route('home')->with('success', 'Post has been successfully added!');        
-        } else {
-            return back()->with('Failed', 'Please upload the image file.');
+    public function createPost(Request $request) {
+
+        $detail=$request->summernoteInput;
+
+        $dom = new \domdocument();
+        $dom->loadHtml($detail, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
+
+        $images = $dom->getelementsbytagname('img');
+
+        foreach($images as $k => $img){
+            $data = $img->getattribute('src');
+
+            list($type, $data) = explode(';', $data);
+            list(, $data)      = explode(',', $data);
+
+            $data = base64_decode($data);
+            $image_name= time().$k.'.png';
+            $path = public_path() .'/uploads/'. $image_name;
+
+            file_put_contents($path, $data);
+
+            $img->removeattribute('src');
+            $img->setattribute('src', '/uploads/' . $image_name);
         }
+
+        $author = DB::table('users')->where('email', Auth::user()->email)->get()->first()->id;
+
+        $detail = $dom->savehtml();
+        $post = new Post;
+        $post->description = $detail;
+        $post->title = $request->title;
+        $post->image = '';
+        $post->author = $author;
+        $post->save();
+
+        return redirect()->route('home')->with('success', 'Post has been successfully added!');
+
+//        $file = $request->file('image');
+//        if ($this->is_image($file)) {
+//            $file_uuid = Str::uuid().'.'.$file->getClientOriginalExtension();
+//            if ($file) {
+//                Storage::disk('public')->put($file_uuid, file_get_contents($file));
+//            } else {
+//                $file_uuid = '';
+//            }
+//            $post = Post::create(array(
+//                'title' => Input::get('title'),
+//                'description' => Input::get('description'),
+//                'image' => $file_uuid,
+//                'author' => Auth::user()->id
+//            ));
+//            return redirect()->route('home')->with('success', 'Post has been successfully added!');
+//        } else {
+//            return back()->with('Failed', 'Please upload the image file.');
+//        }
+
     }
 
     public function getPost($id){

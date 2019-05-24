@@ -37,10 +37,11 @@
         <div class="d-flex justify-content-center">
             <div class="col-sm-8">
                 <h1>Create Post</h1>
-                <form action="{{route('summernotePersist')}}" method="POST">
+                <form action="{{route('post.createform')}}" method="POST">
                     {{ csrf_field() }}
+                    <input type="text" class="form-control" id="id_title" name="title" required aria-describedby="title" placeholder="Enter title">
+                    <br/>
                     <textarea name="summernoteInput" class="summernote"></textarea>
-                    <br>
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
             </div>
