@@ -55,6 +55,8 @@ class HomeController extends Controller
 
         $images = $dom->getelementsbytagname('img');
 
+        $iter = 0;
+        $thumbnail = '';
         foreach($images as $k => $img){
             $data = $img->getattribute('src');
 
@@ -69,15 +71,25 @@ class HomeController extends Controller
 
             $img->removeattribute('src');
             $img->setattribute('src', '/uploads/' . $image_name);
+
+            if ($iter == 0) {
+                $thumbnail = $image_name;
+            }
+
+            $iter++;
+        }
+        if ($thumbnail == '') {
+            $thumbnail = '15587351930.png';
         }
 
         $author = DB::table('users')->where('email', Auth::user()->email)->get()->first()->id;
 
         $detail = $dom->savehtml();
         $post = new Post;
-        $post->description = $detail;
         $post->title = $request->title;
-        $post->image = '';
+        $post->description = $detail;
+        $post->strip_description = strip_tags($detail);
+        $post->image = $thumbnail;
         $post->author = $author;
         $post->save();
 

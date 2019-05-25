@@ -15,7 +15,7 @@
                             <div class="post-info">
                                 <div class="post-title">{{ $post->title }}</div>
                                 <div class="post-date">{{ Carbon\Carbon::parse($post->created_at)->format('d-m-Y')  }} by <a href="#">{{ $post->name }}</a></div>
-                                <div class="post-body-dot">{!! \Illuminate\Support\Str::words($post->description, 30, '...') !!}</div>
+                                <div class="post-body-dot">{!! \Illuminate\Support\Str::words($post->strip_description, 30, '...') !!}</div>
                                 <a href="{{ route('post.detail', ['id' => $post->id]) }}" class="post-list-read-more">Read More</a>
                             </div>
                         </div>
