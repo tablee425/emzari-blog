@@ -65,6 +65,22 @@
         .posts-thumb {
             width: 180px;
             height: 160px;
+            float: left;
+        }
+        .posts-thumb-img {
+            width: 180px;
+            height: 160px;
+            object-fit: cover
+        }
+        .item-thumbnail {
+            width: 72px;
+            height: 72px;
+            float: left;
+        }
+        .item-thumbnail-img {
+            width: 72px;
+            height: 72px;
+            object-fit: cover
         }
         .post-info {
             padding-left: 10px;

@@ -45,7 +45,7 @@
                             @if($loop->last)
                                 <div class="item-thumbnail-only-last">
                                     <div class="item-thumbnail">
-                                        <img alt="Youtube Responsive Video" height="72" src="{{ URL::asset('uploads/'.$archive->image) }}" width="72">
+                                        <img class="item-thumbnail-img" src="{{ URL::asset('uploads/'.$archive->image) }}">
                                     </div>
                                     <div class="item-title">
                                         <a href="{{ route('post.read', ['post_id' => $archive->id]) }}" title="Youtube Responsive Video">{!! \Illuminate\Support\Str::words($archive->title, 6, '...') !!}
@@ -55,7 +55,7 @@
                             @else
                                 <div class="item-thumbnail-only">
                                     <div class="item-thumbnail">
-                                        <img alt="Youtube Responsive Video" height="72" src="{{ URL::asset('uploads/'.$archive->image) }}" width="72">
+                                        <img class="item-thumbnail-img" src="{{ URL::asset('uploads/'.$archive->image) }}">
                                     </div>
                                     <div class="item-title">
                                         <a href="{{ route('post.read', ['post_id' => $archive->id]) }}" title="Youtube Responsive Video">{!! \Illuminate\Support\Str::words($archive->title, 6, '...') !!}
