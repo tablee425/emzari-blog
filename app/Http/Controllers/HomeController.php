@@ -164,8 +164,10 @@ class HomeController extends Controller
         foreach($images as $k => $image){
             $src = $image->getattribute('src');
     
-            $link_array = explode('/', $src);
-            $thumbnail = end($link_array);
+            if ($iter == 0) {
+                $link_array = explode('/', $src);
+                $thumbnail = end($link_array);
+            }
             
             if (preg_match('/data:image/', $src)) {
                 preg_match('/data:image\/(?<mime>.*?)\;/', $src, $groups);
@@ -186,7 +188,10 @@ class HomeController extends Controller
                     ->save(public_path($path));
         
                 $image->removeAttribute('src');
-                $image->setAttribute('src', asset($path));
+                
+                $path_link = explode('/', $path);
+                
+                $image->setAttribute('src', '/uploads/' . end($path_link));
             }
         
             $iter++;

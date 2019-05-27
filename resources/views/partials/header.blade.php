@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-white rounded-0" data-spy="affix" data-offset-top="-10" style="padding-left: 100px; padding-right: 100px;box-shadow: 1px 0 2px 2px rgba(42,42,42,.25);">
-    <a class="navbar-nav navbar-brand" style="color: #555;font-size: 18px;font-weight: 700;line-height: normal;" href="http://localhost/home">My Posts</a>
+    <a class="navbar-nav navbar-brand" style="color: #555;font-size: 18px;font-weight: 700;line-height: normal;" href="{{ URL::to('/home') }}">My Posts</a>
     <div class="navbar-nav ml-auto" id="navbarsExample09">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item dropdown">
