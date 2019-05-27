@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
+use Intervention\Image\Facades\Image;
 
 class HomeController extends Controller
 {
@@ -132,14 +133,77 @@ class HomeController extends Controller
     }
 
     public function editPost($id) {
+        $myposts = DB::table('users')
+            ->leftjoin('posts', 'users.id', '=', 'posts.author')
+            ->where('users.email', Auth::user()->email);
+        $count = $myposts->count();
+        
         $post = Post::find($id);
-        return view('post/edit_post', ['post' => $post]);
+    
+        $archives = DB::table('posts')->orderBy('id', 'DESC')->take(3)->get();
+        $summernote = new Summernote;
+        $summernote->content = $post->description;
+        
+        return view('post/edit_post', ['post' => $post, 'archives' => $archives, 'count' => $count], compact('summernote'));
     }
 
     public function updatePost(Request $request, $id) {
         $post = Post::find($id);
         $post->title = $request->title;
-        $post->description = $request->description;
+    
+        $detail=$request->summernoteInput;
+    
+        libxml_use_internal_errors(true);
+        $dom = new \domdocument();
+        $dom->loadHtml(mb_convert_encoding($detail, 'HTML-ENTITIES', 'UTF-8'), LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
+    
+        $images = $dom->getelementsbytagname('img');
+        
+        $iter = 0;
+        $thumbnail = '';
+        foreach($images as $k => $image){
+            $src = $image->getattribute('src');
+    
+            $link_array = explode('/', $src);
+            $thumbnail = end($link_array);
+            
+            if (preg_match('/data:image/', $src)) {
+                preg_match('/data:image\/(?<mime>.*?)\;/', $src, $groups);
+                $mimeType = $groups['mime'];
+        
+                $image_name = uniqid('', true) . '.' . $mimeType;
+                $path = '/uploads/' . $image_name;
+
+                if ($iter == 0) {
+                    $thumbnail = $image_name;
+                }
+        
+                Image::make($src)
+                    ->resize(750, null, function ($constraint) {
+                        $constraint->aspectRatio();
+                    })
+                    ->encode($mimeType, 80)
+                    ->save(public_path($path));
+        
+                $image->removeAttribute('src');
+                $image->setAttribute('src', asset($path));
+            }
+        
+            $iter++;
+        }
+
+        if ($thumbnail == '') {
+            $thumbnail = '15587351930.png';
+        }
+    
+        $author = DB::table('users')->where('email', Auth::user()->email)->get()->first()->id;
+    
+        $detail = $dom->savehtml();
+        $post->description = $detail;
+        $post->strip_description = strip_tags($detail);
+        $post->image = $thumbnail;
+        $post->author = $author;
+        
         $post->save();
         return redirect()->route('home')->with('success', 'Post has been updated successfully!');
     }

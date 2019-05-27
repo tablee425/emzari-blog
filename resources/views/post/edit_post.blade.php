@@ -5,24 +5,10 @@
 @endsection
 
 @section('content')
-    <div class="container-fluid">
-        <div class="row">
-            <nav class="col-sm-3 col-md-2 d-none d-sm-block bg-light sidebar">
-                <ul class="nav nav-pills flex-column">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#">Post <span class="sr-only">(current)</span></a>
-                    </li>
-                </ul>
-                <ul class="nav nav-pills flex-column">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Nav item again</a>
-                    </li>
-                </ul>
-            </nav>
-
-            <main role="main" class="col-sm-9 ml-sm-auto col-md-10 pt-3">
-                <h1>Edit Post</h1>
-                <div class="col-md-6">
+    <main role="main" class="container"  style="margin-top: 70px">
+        <section style="margin-top: 10px;">
+            <div class="row">
+                <div class="col-sm-7 offset-sm-1" style="background: white; padding: 20px;">
                     <form method="post" action="{{ route('post.update', ['id' => $post->id]) }}">
                         {{ csrf_field() }}
                         <div class="form-group">
@@ -31,13 +17,48 @@
                                    aria-describedby="title" value="{{ $post->title }}">
                         </div>
                         <div class="form-group">
-                            <label for="description">Description</label>
-                            <textarea class="form-control" id="id_description" rows="5" name="description">{{ $post->description }}</textarea>
+                            <textarea name="summernoteInput" class="summernote"></textarea>
                         </div>
                         <button type="submit" class="btn btn-primary">update post</button>
                     </form>
                 </div>
-            </main>
-        </div>
-    </div>
+
+                <aside class="col-sm-3" style="margin-left: 10px; padding-left: 0px; padding-right: 0px;">
+                    <div class="widget-title">
+                        <div class="right-side-title">ABOUT ME</div>
+                    </div>
+                    <div class="widget-content" style="padding-bottom: 15px;">
+                        <img src="{{ URL::asset('uploads/15589569920.png') }}" style="width: 100%; height: auto;" >
+                        <div class="font-weight-bold" style="margin-top: 10px;">{{ Auth::user()->name }}</div>
+                        <div class="font-weight-bold" style="margin-top: 10px;">Posted: {{ $count }}</div>
+
+                        <div style="margin-top: 10px;">
+                            <a href="{{ route('post.delete', ['id' => $post->id]) }}">
+                                <button type="button" class="btn btn-danger btn-sm">Delete Post</button>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="widget-title" style="margin-top: 10px;">
+                        <div class="right-side-title">CLOUD LABELS</div>
+                    </div>
+                    <div class="widget-content" style="padding-bottom: 15px;">
+                        <a href="{{ route('index') }}"><span class="badge badge-default">All</span></a>
+                        <span class="badge badge-default">Tech</span>
+                        <span class="badge badge-primary">Video</span>
+                        <span class="badge badge-secondary">Foods</span>
+                        <span class="badge badge-success">Labels</span>
+                        <span class="badge badge-danger">Blogger</span>
+                    </div>
+                </aside>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        $(document).ready(function() {
+            $('.summernote').summernote({ height: 350 });
+            $('.summernote').summernote('code', {!! json_encode($summernote->content) !!});
+        });
+    </script>
 @endsection
