@@ -12,8 +12,7 @@
                     <div class="blog-post">
                         <h2 class="post-title">{{ $post->title }}</h2>
                         <p class="post-date-border"><small><i>{{ Carbon\Carbon::parse($post->created_at)->format('d-m-Y')  }} by <a href="#">{{ $post->name }}</a></i></small></p>
-                        <img class="post-img" src="{{ URL::asset('uploads/'.$post->image) }}">
-                        <div class="post-desc">{{ $post->description }}</div>
+                        <div class="post-desc">{!! $summernote->content !!}</div>
                     </div>
 
                     <form class="text-center border border-light p-5 m-5">

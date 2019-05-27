@@ -117,8 +117,18 @@ class HomeController extends Controller
     }
 
     public function getPost($id){
+        $myposts = DB::table('users')
+            ->leftjoin('posts', 'users.id', '=', 'posts.author')
+            ->where('users.email', Auth::user()->email);
+        $count = $myposts->count();
+
         $post = Post::find($id);
-        return view('post/post_detail', ['post' => $post]);
+
+        $archives = DB::table('posts')->orderBy('id', 'DESC')->take(3)->get();
+        $summernote = new Summernote;
+        $summernote->content = $post->description;
+
+        return view('post/post_detail', ['post' => $post, 'archives' => $archives, 'count' => $count], compact('summernote'));
     }
 
     public function editPost($id) {

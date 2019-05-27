@@ -1,5 +1,6 @@
 <?php
 namespace App\Http\Controllers;
+use App\Summernote;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 class PostController extends Controller
@@ -18,6 +19,9 @@ class PostController extends Controller
 
         $archives = DB::table('posts')->orderBy('id', 'DESC')->take(3)->get();
 
-        return view('post/read', ['post' => $post, 'archives' => $archives]);
+        $summernote = new Summernote;
+        $summernote->content = $post->description;
+
+        return view('post/read', ['post' => $post, 'archives' => $archives], compact('summernote'));
     }
 }

@@ -151,10 +151,16 @@
         }
         .post-desc {
             margin-top: 20px;
+            /*overflow: auto;*/
+            /*width: 100%;*/
+            /*display:inline-block;*/
         }
         .post-img {
             width: 100%;
             height: auto;
+        }
+        .post-desc img {
+            width:100% !important;
         }
         .page-item.active .page-link {
             z-index: 1;
