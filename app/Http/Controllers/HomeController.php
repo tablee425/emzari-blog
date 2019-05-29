@@ -44,11 +44,23 @@ class HomeController extends Controller
     }
 
     public function getPostForm() {
-        return view('post/post_form');
+        $tags = [
+            ['title' => 'PHP', 'checked' => false],
+            ['title' => 'Javascript', 'checked' => false],
+            ['title' => 'Java', 'checked' => false],
+            ['title' => 'Swift', 'checked' => false],
+            ['title' => 'C++', 'checked' => false],
+            ['title' => 'Dart', 'checked' => false],
+            ['title' => 'C#', 'checked' => false],
+            ['title' => 'MySQL', 'checked' => false],
+            ['title' => 'jQuery', 'checked' => false]
+        ];
+        return view('post/post_form', ['tags' => $tags]);
     }
 
     public function createPost(Request $request) {
-
+//        var_dump(Input::get('x1'));
+//        die;
         $detail=$request->summernoteInput;
 
         $dom = new \domdocument();

@@ -41,6 +41,12 @@
                     {{ csrf_field() }}
                     <input type="text" class="form-control" id="id_title" name="title" required aria-describedby="title" placeholder="Enter title">
                     <br/>
+{{--                    <div class="widget-content" style="padding-bottom: 15px;">--}}
+{{--                        @foreach($tags as $key => $tag)--}}
+{{--                            <input name={{ "x" . $key }} type="text" class="btn" data-toggle="button" aria-pressed="false" autocomplete="off" value="{{ $tag['title'] }}"/>--}}
+{{--                        @endforeach--}}
+{{--                    </div>--}}
+{{--                    <br/>--}}
                     <textarea name="summernoteInput" class="summernote"></textarea>
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form>

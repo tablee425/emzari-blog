@@ -19,7 +19,9 @@
     <script src="{{ URL::to('dist/js/bootstrap.min.js') }}"></script>
     <script src="{{ URL::to('js/ie10-viewport-bug-workaround.js') }}"></script>
     <script type="text/javascript" src="{{ URL::to('js/summernote.js') }}"></script>
-    
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
     <style>
         body {
             font-family: 'Roboto',sans-serif;
@@ -70,7 +72,14 @@
         .posts-thumb-img {
             width: 180px;
             height: 160px;
-            object-fit: cover
+            object-fit: cover;
+            transition-duration: 0.5s;
+        }
+        .posts-thumb-img:hover {
+            -webkit-transform: scale(1.05);
+            -ms-transform: scale(1.05);
+            transform: scale(1.05);
+            cursor: pointer;
         }
         .item-thumbnail {
             width: 72px;
@@ -80,7 +89,14 @@
         .item-thumbnail-img {
             width: 72px;
             height: 72px;
-            object-fit: cover
+            object-fit: cover;
+            transition-duration: 0.5s;
+        }
+        .item-thumbnail-img:hover {
+            -webkit-transform: scale(1.05);
+            -ms-transform: scale(1.05);
+            transform: scale(1.05);
+            cursor: pointer;
         }
         .post-info {
             padding-left: 10px;
@@ -179,7 +195,17 @@
         .modal-title {
             display: none;
         }
-    </style>
+        .btn:active,
+        .active {
+            color: black !important;
+            background-color: lightgray !important;
+            border-color: transparent !important;
+        }
+        .btn:focus,.btn:active {
+            outline: none !important;
+            box-shadow: none;
+        }
+        </style>
     @yield('styles')
 </head>
 <body>

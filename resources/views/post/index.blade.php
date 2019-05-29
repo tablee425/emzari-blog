@@ -12,7 +12,7 @@
                     @foreach($posts as $post)
                         <div class="post-container">
                             <div class="posts-thumb">
-                                <img class="posts-thumb-img" src="{{ URL::asset('uploads/'.$post->image) }}">
+                                <a href="{{ route('post.read', ['post_id' => $post->id]) }}"><img class="posts-thumb-img" src="{{ URL::asset('uploads/'.$post->image) }}"></a>
                             </div>
                             <div class="post-info">
                                 <div class="post-title">{{ $post->title }}</div>
@@ -49,7 +49,7 @@
                             @if($loop->last)
                                 <div class="item-thumbnail-only-last">
                                     <div class="item-thumbnail">
-                                        <img class="item-thumbnail-img" src="{{ URL::asset('uploads/'.$archive->image) }}">
+                                        <a href="{{ route('post.read', ['post_id' => $archive->id]) }}"><img class="item-thumbnail-img" src="{{ URL::asset('uploads/'.$archive->image) }}"></a>
                                     </div>
                                     <div class="item-title">
                                         <a href="{{ route('post.read', ['post_id' => $archive->id]) }}" title="Youtube Responsive Video">{!! \Illuminate\Support\Str::words($archive->title, 6, '...') !!}
@@ -59,7 +59,7 @@
                             @else
                                 <div class="item-thumbnail-only">
                                     <div class="item-thumbnail">
-                                        <img class="item-thumbnail-img" src="{{ URL::asset('uploads/'.$archive->image) }}">
+                                        <a href="{{ route('post.read', ['post_id' => $archive->id]) }}"><img class="item-thumbnail-img" src="{{ URL::asset('uploads/'.$archive->image) }}"></a>
                                     </div>
                                     <div class="item-title">
                                         <a href="{{ route('post.read', ['post_id' => $archive->id]) }}" title="Youtube Responsive Video">{!! \Illuminate\Support\Str::words($archive->title, 6, '...') !!}
