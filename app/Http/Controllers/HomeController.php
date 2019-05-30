@@ -8,6 +8,7 @@ use App\Post;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
@@ -23,7 +24,7 @@ class HomeController extends Controller
     {
         $this->middleware('auth');
     }
-
+    
     /**
      * Show the application dashboard.
      *
@@ -36,14 +37,15 @@ class HomeController extends Controller
             ->where('users.email', Auth::user()->email);
         $count = $myposts->count();
         $posts = $myposts->paginate(7);
-
+        
         $author = DB::table('users')->where('email', Auth::user()->email)->get()->first()->id;
-
+        
         $archives = DB::table('posts')->where('author', $author)->orderBy('id', 'DESC')->take(3)->get();
         return view('home', ['posts' => $posts, 'count' => $count, 'archives' => $archives]);
     }
-
-    public function getPostForm() {
+    
+    public function getPostForm()
+    {
         $tags = [
             ['title' => 'PHP', 'checked' => false],
             ['title' => 'Javascript', 'checked' => false],
@@ -57,46 +59,48 @@ class HomeController extends Controller
         ];
         return view('post/post_form', ['tags' => $tags]);
     }
-
-    public function createPost(Request $request) {
-//        var_dump(Input::get('x1'));
-//        die;
-        $detail=$request->summernoteInput;
-
+    
+    public function createPost(Request $request)
+    {
+        $tags = explode(",", $request->tags);
+        var_dump($tags);
+        die;
+        $detail = $request->summernoteInput;
+        
         $dom = new \domdocument();
         $dom->loadHtml($detail, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
-
+        
         $images = $dom->getelementsbytagname('img');
-
+        
         $iter = 0;
         $thumbnail = '';
-        foreach($images as $k => $img){
+        foreach ($images as $k => $img) {
             $data = $img->getattribute('src');
-
+            
             list($type, $data) = explode(';', $data);
-            list(, $data)      = explode(',', $data);
-
+            list(, $data) = explode(',', $data);
+            
             $data = base64_decode($data);
-            $image_name= time().$k.'.png';
-            $path = public_path() .'/uploads/'. $image_name;
-
+            $image_name = time().$k.'.png';
+            $path = public_path().'/uploads/'.$image_name;
+            
             file_put_contents($path, $data);
-
+            
             $img->removeattribute('src');
-            $img->setattribute('src', '/uploads/' . $image_name);
-
+            $img->setattribute('src', '/uploads/'.$image_name);
+            
             if ($iter == 0) {
                 $thumbnail = $image_name;
             }
-
+            
             $iter++;
         }
         if ($thumbnail == '') {
             $thumbnail = '15587351930.png';
         }
-
+        
         $author = DB::table('users')->where('email', Auth::user()->email)->get()->first()->id;
-
+        
         $detail = $dom->savehtml();
         $post = new Post;
         $post->title = $request->title;
@@ -105,7 +109,7 @@ class HomeController extends Controller
         $post->image = $thumbnail;
         $post->author = $author;
         $post->save();
-
+        
         return redirect()->route('home')->with('success', 'Post has been successfully added!');
 
 //        $file = $request->file('image');
@@ -126,56 +130,62 @@ class HomeController extends Controller
 //        } else {
 //            return back()->with('Failed', 'Please upload the image file.');
 //        }
-
-    }
-
-    public function getPost($id){
-        $myposts = DB::table('users')
-            ->leftjoin('posts', 'users.id', '=', 'posts.author')
-            ->where('users.email', Auth::user()->email);
-        $count = $myposts->count();
-
-        $post = Post::find($id);
-
-        $archives = DB::table('posts')->orderBy('id', 'DESC')->take(3)->get();
-        $summernote = new Summernote;
-        $summernote->content = $post->description;
-
-        return view('post/post_detail', ['post' => $post, 'archives' => $archives, 'count' => $count], compact('summernote'));
-    }
-
-    public function editPost($id) {
-        $myposts = DB::table('users')
-            ->leftjoin('posts', 'users.id', '=', 'posts.author')
-            ->where('users.email', Auth::user()->email);
-        $count = $myposts->count();
-        
-        $post = Post::find($id);
     
+    }
+    
+    public function getPost($id)
+    {
+        $myposts = DB::table('users')
+            ->leftjoin('posts', 'users.id', '=', 'posts.author')
+            ->where('users.email', Auth::user()->email);
+        $count = $myposts->count();
+        
+        $post = Post::find($id);
+        
         $archives = DB::table('posts')->orderBy('id', 'DESC')->take(3)->get();
         $summernote = new Summernote;
         $summernote->content = $post->description;
         
-        return view('post/edit_post', ['post' => $post, 'archives' => $archives, 'count' => $count], compact('summernote'));
+        return view('post/post_detail', ['post' => $post, 'archives' => $archives, 'count' => $count],
+            compact('summernote'));
     }
-
-    public function updatePost(Request $request, $id) {
+    
+    public function editPost($id)
+    {
+        $myposts = DB::table('users')
+            ->leftjoin('posts', 'users.id', '=', 'posts.author')
+            ->where('users.email', Auth::user()->email);
+        $count = $myposts->count();
+        
+        $post = Post::find($id);
+        
+        $archives = DB::table('posts')->orderBy('id', 'DESC')->take(3)->get();
+        $summernote = new Summernote;
+        $summernote->content = $post->description;
+        
+        return view('post/edit_post', ['post' => $post, 'archives' => $archives, 'count' => $count],
+            compact('summernote'));
+    }
+    
+    public function updatePost(Request $request, $id)
+    {
         $post = Post::find($id);
         $post->title = $request->title;
-    
-        $detail=$request->summernoteInput;
-    
+        
+        $detail = $request->summernoteInput;
+        
         libxml_use_internal_errors(true);
         $dom = new \domdocument();
-        $dom->loadHtml(mb_convert_encoding($detail, 'HTML-ENTITIES', 'UTF-8'), LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
-    
+        $dom->loadHtml(mb_convert_encoding($detail, 'HTML-ENTITIES', 'UTF-8'),
+            LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
+        
         $images = $dom->getelementsbytagname('img');
         
         $iter = 0;
         $thumbnail = '';
-        foreach($images as $k => $image){
+        foreach ($images as $k => $image) {
             $src = $image->getattribute('src');
-    
+            
             if ($iter == 0) {
                 $link_array = explode('/', $src);
                 $thumbnail = end($link_array);
@@ -184,37 +194,37 @@ class HomeController extends Controller
             if (preg_match('/data:image/', $src)) {
                 preg_match('/data:image\/(?<mime>.*?)\;/', $src, $groups);
                 $mimeType = $groups['mime'];
-        
-                $image_name = uniqid('', true) . '.' . $mimeType;
-                $path = '/uploads/' . $image_name;
-
+                
+                $image_name = uniqid('', true).'.'.$mimeType;
+                $path = '/uploads/'.$image_name;
+                
                 if ($iter == 0) {
                     $thumbnail = $image_name;
                 }
-        
+                
                 Image::make($src)
                     ->resize(750, null, function ($constraint) {
                         $constraint->aspectRatio();
                     })
                     ->encode($mimeType, 80)
                     ->save(public_path($path));
-        
+                
                 $image->removeAttribute('src');
                 
                 $path_link = explode('/', $path);
                 
-                $image->setAttribute('src', '/uploads/' . end($path_link));
+                $image->setAttribute('src', '/uploads/'.end($path_link));
             }
-        
+            
             $iter++;
         }
-
+        
         if ($thumbnail == '') {
             $thumbnail = '15587351930.png';
         }
-    
+        
         $author = DB::table('users')->where('email', Auth::user()->email)->get()->first()->id;
-    
+        
         $detail = $dom->savehtml();
         $post->description = $detail;
         $post->strip_description = strip_tags($detail);
@@ -224,22 +234,34 @@ class HomeController extends Controller
         $post->save();
         return redirect()->route('home')->with('success', 'Post has been updated successfully!');
     }
-
-    public function deletePost($id) {
+    
+    public function deletePost($id)
+    {
         $post = Post::find($id);
         $post->delete();
         return redirect()->route('home')->with('success', 'Post has been deleted successfully!');
     }
-
+    
     function is_image($path)
     {
         $a = getimagesize($path);
         $image_type = $a[2];
         
-        if(in_array($image_type , array(IMAGETYPE_GIF , IMAGETYPE_JPEG ,IMAGETYPE_PNG , IMAGETYPE_BMP)))
-        {
+        if (in_array($image_type, array(IMAGETYPE_GIF, IMAGETYPE_JPEG, IMAGETYPE_PNG, IMAGETYPE_BMP))) {
             return true;
         }
         return false;
+    }
+    
+    public function testEmail(Request $request)
+    {
+        $data = array (
+            'bodyMessage' => 'My first sendgrid message'
+        );
+        Mail::send ( 'email', $data, function ($message) {
+            $message->from ( 'no-reply@emzariblog.com', 'Emzari News' );
+            $message->to ( 'emzo.emzo.chabo.1@gmail.com' )->subject ( 'Confirm your subscription to the Emzari News email list' );
+        } );
+        return view('subscribe/subscribed');
     }
 }

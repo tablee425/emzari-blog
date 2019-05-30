@@ -15,7 +15,8 @@
                         <div class="post-desc">{!! $summernote->content !!}</div>
                     </div>
 
-                    <form class="text-center border border-light p-5 m-5">
+                    <form class="text-center border border-light p-5 m-5" action="{{route('post.testemail')}}" method="POST">
+                        {{ csrf_field() }}
                         <p class="h4 mb-4">SUBSCRIBE TO OUR NEWSLETTER</p>
                         <input type="text" id="defaultSubscriptionFormPassword" class="form-control mb-4" placeholder="Name">
                         <input type="email" id="defaultSubscriptionFormEmail" class="form-control mb-4" placeholder="E-mail">
