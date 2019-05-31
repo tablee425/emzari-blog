@@ -37,7 +37,7 @@ class PostController extends Controller
         $subscribe->email = $request->subscribe_email;
         $subscribe->name = $request->subscribe_name;
         $subscribe->token = $token;
-        $subscribe->confirmed = true;
+        $subscribe->confirmed = false;
         
         $found = DB::table('subscribes')->where('email', $request->subscribe_email)->get();
         if ($found->count() == 0) { // first send
@@ -75,7 +75,21 @@ class PostController extends Controller
         }
     }
     
+    public function updateUnsubscription($token) {
+        $found = DB::table('subscribes')->where('token', $token)->get();
+        if ($found->count() == 0) {
+            return redirect()->route('subscription.unsubscribed')->with('status', 'SessionExpiredToken~13683432126848694534');
+        } else {
+            DB::table('subscribes')->where('token', $token)->delete();
+            return redirect()->route('subscription.unsubscribed')->with('status', $found[0]->name);
+        }
+    }
+    
     public function confirmed() {
         return view('subscribe/confirmed');
+    }
+    
+    public function unsubscribed() {
+        return view('subscribe/unsubscribed');
     }
 }

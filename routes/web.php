@@ -34,3 +34,5 @@ Route::post('article', 'ArticleController@store');
 Route::post('/subscribed', 'PostController@sendSubscription')->name('post.send_subscription');
 Route::get('/confirmed', 'PostController@confirmed')->name('subscription.confirmed');
 Route::get('/subscribe/{token}', 'PostController@updateSubscription');
+Route::get('/unsubscribe/{token}', 'PostController@updateUnsubscription');
+Route::get('/unsubscribed', 'PostController@unsubscribed')->name('subscription.unsubscribed');
