@@ -93,4 +93,8 @@ class PostController extends Controller
     public function unsubscribed() {
         return view('subscribe/unsubscribed');
     }
+    
+    public function emailnotification() {
+        return view('email/notification');
+    }
 }

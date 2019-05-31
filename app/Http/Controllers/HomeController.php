@@ -97,7 +97,7 @@ class HomeController extends Controller
             $iter++;
         }
         if ($thumbnail == '') {
-            $thumbnail = '15587351930.png';
+            $thumbnail = 'no-image.png';
         }
         
         $author = DB::table('users')->where('email', Auth::user()->email)->get()->first()->id;
@@ -110,12 +110,16 @@ class HomeController extends Controller
         $post->image = $thumbnail;
         $post->author = $author;
         $post->save();
+        $new_id = $post->id;
         
         // send notification to the subscribed users
         $subscribes = DB::table('subscribes')->where('confirmed', true)->get();
         if ($subscribes->count() > 0) {
             $data = array(
-                'data' => ''
+                'thumbnail' => 'http://172.20.11.50/' . $thumbnail,
+                'title' => $request->title,
+                'shortbody' => strip_tags($detail),
+                'link' => 'http://172.20.11.50/post/read/' . $new_id
             );
             $emails = array();
             foreach ($subscribes as $subscribe_key => $subscribe) {
@@ -217,7 +221,7 @@ class HomeController extends Controller
         }
         
         if ($thumbnail == '') {
-            $thumbnail = '15587351930.png';
+            $thumbnail = 'no-image.png';
         }
         
         $author = DB::table('users')->where('email', Auth::user()->email)->get()->first()->id;

@@ -36,3 +36,5 @@ Route::get('/confirmed', 'PostController@confirmed')->name('subscription.confirm
 Route::get('/subscribe/{token}', 'PostController@updateSubscription');
 Route::get('/unsubscribe/{token}', 'PostController@updateUnsubscription');
 Route::get('/unsubscribed', 'PostController@unsubscribed')->name('subscription.unsubscribed');
+
+Route::get('/emailnotification', 'PostController@emailnotification');

@@ -1,36 +1,27 @@
-<!DOCTYPE html>
-<html lang="en-US">
-    <head>
-        <meta charset="utf-8">
-    </head>
-    <body>
-        <div>
-            Hi
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <style type="text/css">
+        div img {
+            width: 100%!important;
+        }
+    </style>
+</head>
+<!-- Edit the code below this line -->
+<body class="bg-light">
+<div class="container justify-content-center">
+    <div class="card mb-4" style="border-top: 5px solid #ff00bf; margin-top: 30px; width: 60%; left: 20%;">
+        <div class="card-body">
+            <img class="mx-auto" src={{ $thumbnail }} />
+            <div class="text-left" style="font-size: 30px; font-weight: bold;margin-top: 20px;">{{ $title }}</div>
+            <div class="text-left" style="font-size: 17px; color: slategray; margin-top: 20px;">{{ $shortbody }}</div>
+            <hr/>
+            <a href={{ $link }}><h5 class="text-center"><strong>Read More...</strong></h5></a>
         </div>
-        <br>
-        <div>
-            Thanks for subscribing to the Emzari News email list. To complete your subscription, you need to confirm you got this email. To do so, please click the link below:
-        </div>
-        <br>
-        <div>
-            ------------------------------
-        </div>
-        <br>
-        <a href="http://172.20.11.50/subscribe/127873573920394234234324234">http://172.20.11.50/subscribe/393593289273957932057932</a>
-        <br>
-        <br>
-        <div>
-            ------------------------------
-        </div>
-        <br>
-        <div>
-            If you subscribed in error or no longer want to hear from us, click the link below and you will be instantly removed from our list:
-        </div>
-        <br>
-        <div>
-            ------------------------------
-        </div>
-        <br>
-        <a href="http://172.20.11.50/subscribe/127873573920394234234324234">http://172.20.11.50/subscribe/393593289273957932057932</a>
-    </body>
+    </div>
+</div>
+
+</body>
 </html>
