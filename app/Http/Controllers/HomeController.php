@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Subscribe;
 use App\Summernote;
 use Illuminate\Http\Request;
 use App\Post;
@@ -62,9 +63,9 @@ class HomeController extends Controller
     
     public function createPost(Request $request)
     {
-        $tags = explode(",", $request->tags);
-        var_dump($tags);
-        die;
+//        $tags = explode(",", $request->tags);
+//        var_dump($tags);
+//        die;
         $detail = $request->summernoteInput;
         
         $dom = new \domdocument();
@@ -251,17 +252,5 @@ class HomeController extends Controller
             return true;
         }
         return false;
-    }
-    
-    public function testEmail(Request $request)
-    {
-        $data = array (
-            'bodyMessage' => 'My first sendgrid message'
-        );
-        Mail::send ( 'email', $data, function ($message) {
-            $message->from ( 'no-reply@emzariblog.com', 'Emzari News' );
-            $message->to ( 'emzo.emzo.chabo.1@gmail.com' )->subject ( 'Confirm your subscription to the Emzari News email list' );
-        } );
-        return view('subscribe/subscribed');
     }
 }

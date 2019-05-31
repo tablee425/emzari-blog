@@ -1,8 +1,13 @@
 <?php
 namespace App\Http\Controllers;
+use App\Subscribe;
 use App\Summernote;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Str;
+use mysql_xdevapi\Session;
+
 class PostController extends Controller
 {
     public function getIndex() {
@@ -23,5 +28,54 @@ class PostController extends Controller
         $summernote->content = $post->description;
 
         return view('post/read', ['post' => $post, 'archives' => $archives], compact('summernote'));
+    }
+    
+    public function sendSubscription(Request $request)
+    {
+        $token = Str::uuid();
+        $subscribe = new Subscribe;
+        $subscribe->email = $request->subscribe_email;
+        $subscribe->name = $request->subscribe_name;
+        $subscribe->token = $token;
+        $subscribe->confirmed = true;
+        
+        $found = DB::table('subscribes')->where('email', $request->subscribe_email)->get();
+        if ($found->count() == 0) { // first send
+            $subscribe->save();
+            $data = array (
+                'token' => $token
+            );
+            Mail::send ( 'email/subscribe_send', $data, function ($message) {
+                $message->from( 'no-reply@emzariblog.com', 'Emzari News' );
+                $message->to( 'emzo.emzo.chabo.1@gmail.com' )->subject ( 'Confirm your subscription to the Emzari News email list' );
+            } );
+            return view('subscribe/subscribed');
+        } else if ($found[0]->confirmed == 0) { // already sent and not confirmed
+            DB::table('subscribes')->where('email', $request->subscribe_email)->update(['token' => $token]);
+            $data = array (
+                'token' => $token
+            );
+            Mail::send ( 'email/subscribe_send', $data, function ($message) {
+                $message->from ( 'no-reply@emzariblog.com', 'Emzari News' );
+                $message->to( 'emzo.emzo.chabo.1@gmail.com' )->subject ( 'Confirm your subscription to the Emzari News email list' );
+            } );
+            return view('subscribe/resent_subscribed');
+        } else { // already sent and confirmed
+            return view('subscribe/already_subscribed');
+        }
+    }
+    
+    public function updateSubscription($token) {
+        $found = DB::table('subscribes')->where('token', $token)->get();
+        if ($found->count() == 0) {
+            return redirect()->route('subscription.confirmed')->with('status', 'SessionExpiredToken~13683432126848694534');
+        } else {
+            DB::table('subscribes')->where('token', $token)->update(['confirmed' => true]);
+            return redirect()->route('subscription.confirmed')->with('status', $found[0]->name);
+        }
+    }
+    
+    public function confirmed() {
+        return view('subscribe/confirmed');
     }
 }

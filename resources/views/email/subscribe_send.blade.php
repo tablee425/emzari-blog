@@ -16,7 +16,7 @@
             ------------------------------
         </div>
         <br>
-        <a href="#">http://laravelnews.cmail20.com/t/d-c-jtbkjllb</a>
+        <a href="http://172.20.11.50/subscribe/{{$token}}">http://172.20.11.50/subscribe/{{ $token }}</a>
         <br>
         <br>
         <div>
@@ -31,6 +31,6 @@
             ------------------------------
         </div>
         <br>
-        <a href="#">http://laravelnews.cmail20.com/t/d-u-l_owwr-jtbkjllb/</a>
+        <a href="http://172.20.11.50/unsubscribe/{{$token}}">http://172.20.11.50/unsubscribe/{{ $token }}</a>
     </body>
 </html>

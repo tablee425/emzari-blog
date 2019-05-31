@@ -12,7 +12,7 @@
                     Thank You
                 </div>
                 <div style="font-size: 25px; color: gray;margin-top: 10px;">
-                    Your subscription has been sent and we are awaiting your confirmation.
+                    Your subscription has been sent again and we are awaiting your confirmation.
                 </div>
             </div>
         </div>
