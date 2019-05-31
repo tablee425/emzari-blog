@@ -38,6 +38,7 @@ class PostController extends Controller
         $subscribe->name = $request->subscribe_name;
         $subscribe->token = $token;
         $subscribe->confirmed = false;
+        $email = $request->subscribe_email;
         
         $found = DB::table('subscribes')->where('email', $request->subscribe_email)->get();
         if ($found->count() == 0) { // first send
@@ -45,9 +46,9 @@ class PostController extends Controller
             $data = array (
                 'token' => $token
             );
-            Mail::send ( 'email/subscribe_send', $data, function ($message) {
+            Mail::send ( 'email/subscribe_send', $data, function ($message) use ($email) {
                 $message->from( 'no-reply@emzariblog.com', 'Emzari News' );
-                $message->to( 'emzo.emzo.chabo.1@gmail.com' )->subject ( 'Confirm your subscription to the Emzari News email list' );
+                $message->to( $email )->subject ( 'Confirm your subscription to the Emzari News email list' );
             } );
             return view('subscribe/subscribed');
         } else if ($found[0]->confirmed == 0) { // already sent and not confirmed
@@ -55,9 +56,9 @@ class PostController extends Controller
             $data = array (
                 'token' => $token
             );
-            Mail::send ( 'email/subscribe_send', $data, function ($message) {
+            Mail::send ( 'email/subscribe_send', $data, function ($message) use ($email) {
                 $message->from ( 'no-reply@emzariblog.com', 'Emzari News' );
-                $message->to( 'emzo.emzo.chabo.1@gmail.com' )->subject ( 'Confirm your subscription to the Emzari News email list' );
+                $message->to( $email )->subject ( 'Confirm your subscription to the Emzari News email list' );
             } );
             return view('subscribe/resent_subscribed');
         } else { // already sent and confirmed

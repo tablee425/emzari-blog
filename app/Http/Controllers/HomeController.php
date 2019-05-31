@@ -111,27 +111,23 @@ class HomeController extends Controller
         $post->author = $author;
         $post->save();
         
-        return redirect()->route('home')->with('success', 'Post has been successfully added!');
-
-//        $file = $request->file('image');
-//        if ($this->is_image($file)) {
-//            $file_uuid = Str::uuid().'.'.$file->getClientOriginalExtension();
-//            if ($file) {
-//                Storage::disk('public')->put($file_uuid, file_get_contents($file));
-//            } else {
-//                $file_uuid = '';
-//            }
-//            $post = Post::create(array(
-//                'title' => Input::get('title'),
-//                'description' => Input::get('description'),
-//                'image' => $file_uuid,
-//                'author' => Auth::user()->id
-//            ));
-//            return redirect()->route('home')->with('success', 'Post has been successfully added!');
-//        } else {
-//            return back()->with('Failed', 'Please upload the image file.');
-//        }
+        // send notification to the subscribed users
+        $subscribes = DB::table('subscribes')->where('confirmed', true)->get();
+        if ($subscribes->count() > 0) {
+            $data = array(
+                'data' => ''
+            );
+            $emails = array();
+            foreach ($subscribes as $subscribe_key => $subscribe) {
+                array_push($emails, $subscribe->email);
+            }
+            Mail::send ( 'email/notification', $data, function ($message) use ($emails) {
+                $message->from( 'no-reply@emzariblog.com', 'Emzari News' );
+                $message->to( $emails )->subject ( 'New post has been created.' );
+            } );
+        }
     
+        return redirect()->route('home')->with('success', 'Post has been successfully added!');
     }
     
     public function getPost($id)
