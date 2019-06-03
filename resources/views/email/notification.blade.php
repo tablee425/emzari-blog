@@ -14,7 +14,7 @@
 <div class="container justify-content-center">
     <div class="card mb-4" style="border-top: 5px solid #ff00bf; margin-top: 30px; width: 60%; left: 20%;">
         <div class="card-body">
-            <img class="mx-auto" src={{ $thumbnail }} />
+            <img src="{{ $message->embed(public_path() . '/uploads/' . $thumbnail) }}" />
             <div class="text-left" style="font-size: 30px; font-weight: bold;margin-top: 20px;">{{ $title }}</div>
             <div class="text-left" style="font-size: 17px; color: slategray; margin-top: 20px;">{{ $shortbody }}</div>
             <hr/>

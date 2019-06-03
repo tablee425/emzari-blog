@@ -116,7 +116,7 @@ class HomeController extends Controller
         $subscribes = DB::table('subscribes')->where('confirmed', true)->get();
         if ($subscribes->count() > 0) {
             $data = array(
-                'thumbnail' => 'http://172.20.11.50/' . $thumbnail,
+                'thumbnail' => $thumbnail,
                 'title' => $request->title,
                 'shortbody' => strip_tags($detail),
                 'link' => 'http://172.20.11.50/post/read/' . $new_id
