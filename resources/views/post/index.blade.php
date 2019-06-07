@@ -106,11 +106,13 @@
             $("#post-home-layout-1").click(function(){
                 $("#post-home-layout-1").addClass("active");
                 $("#post-home-layout-2").removeClass("active");
+                $(".post-container").addClass("col-xs-12", 500);
                 $(".post-container").removeClass("bloc col-xs-4", 500);
             });
             $("#post-home-layout-2").click(function(){
                 $("#post-home-layout-2").addClass("active");
                 $("#post-home-layout-1").removeClass("active");
+                $(".post-container").removeClass("col-xs-12", 500);
                 $(".post-container").addClass("bloc col-xs-4", 500);
             });
         });

@@ -155,8 +155,48 @@ article:hover .img-wrapper{
     padding:5px;
 }
 
-/* article--end */
 
+.bloc article {
+    padding: 10px;
+    height: 225px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    margin-top: 75px;
+}
+.bloc article .img-wrapper {
+    position: relative;
+    top: -85px;
+    width: 170px;
+    left: inherit;
+    margin: auto auto -100px;
+}
+.bloc article h1 {
+    font-size: 14px;
+    height: 38px;
+    line-height: 38px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+}
+.bloc article p {
+    font-size: 12px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+.bloc article a {
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    line-height: 255px;
+}
+
+/* article--end */
 
 .post-title {
     white-space: nowrap;
