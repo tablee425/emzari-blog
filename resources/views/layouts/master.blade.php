@@ -28,7 +28,7 @@
     <style>
         body {
             font-family: 'Roboto',sans-serif;
-            background: #f0f0f0;
+            background: #cde;
         }
     </style>
     @yield('styles')
@@ -36,7 +36,7 @@
 <body>
     @include('partials.header')
     @yield('content')
-    @include('partials.footer')
+{{--    @include('partials.footer')--}}
     @yield('scripts')
 </body>
 </html>
