@@ -5,365 +5,361 @@
 @endsection
 
 @section('content')
-    <div id="top">
 
-        <div class="boxed">
+    <div class="boxed">
 
-            <div class="container container-gutter">
+        <div class="container container-gutter">
 
-                <!-- top menu -->
-                <div class="top-bar">
+            <!-- top menu -->
+            <div class="top-bar">
 
-                    <span class="top-bar-menu">
-                        <a href="index.html">Home</a>
-                        <a href="about.html">About</a>
-                        <a href="advertisement.html">Advertisement</a>
-                        <a href="contact.html">Contact</a>
-                    </span>
+                <span class="top-bar-menu">
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About</a>
+                    <a href="advertisement.html">Advertisement</a>
+                    <a href="contact.html">Contact</a>
+                </span>
 
-                    <span class="top-bar-socials">
-                        <a href="http://facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a>
-                        <a href="http://twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a>
-                        <a href="http://instagram.com/" target="_blank"><i class="fa fa-instagram"></i></a>
-                        <a href="http://pinterest.com/" target="_blank"><i class="fa fa-pinterest"></i></a>
-                        <a href="http://plus.google.com/#" target="_blank"><i class="fa fa-google-plus"></i></a>
-                        <a href="http://tumblr.com/" target="_blank"><i class="fa fa-tumblr"></i></a>
-                        <a href="#" target="_blank"><i class="fa fa-rss"></i></a>
-                    </span>
+                <span class="top-bar-socials">
+                    <a href="http://facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a>
+                    <a href="http://twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a>
+                    <a href="http://instagram.com/" target="_blank"><i class="fa fa-instagram"></i></a>
+                    <a href="http://pinterest.com/" target="_blank"><i class="fa fa-pinterest"></i></a>
+                    <a href="http://plus.google.com/#" target="_blank"><i class="fa fa-google-plus"></i></a>
+                    <a href="http://tumblr.com/" target="_blank"><i class="fa fa-tumblr"></i></a>
+                    <a href="#" target="_blank"><i class="fa fa-rss"></i></a>
+                </span>
 
+            </div>
+            <!-- end top menu -->
+
+            <!-- header (logo section) -->
+            <header class="header">
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="logo"><a href="index.html"><img id="logo" src="{{ URL::asset('images/logo.png') }}" alt="logo"></a></div>
+                    </div>
                 </div>
-                <!-- end top menu -->
 
-                <!-- header (logo section) -->
-                <header class="header">
+            </header>
+            <!-- end header (logo section) -->
 
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="logo"><a href="index.html"><img id="logo" src="images/logo.png" alt="logo"></a></div>
-                        </div>
+            <!-- main menu -->
+            <nav class="navbar yamm navbar-default" id="main-navigation">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
                     </div>
+                    <div id="navbar" class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav">
+                            <li class="dropdown">
+                                <a href="index.html" class="dropdown-toggle" data-toggle="dropdown">Home <b class="caret"></b></a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="index.html">Default</a></li>
+                                    <li><a href="index-blog.html">Blog Layout</a></li>
+                                    <li><a href="index-grid.html">Grid Layout</a></li>
+                                    <li><a href="index-list.html">List Layout</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="index-grid.html">Fashion</a></li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Features <b class="caret"></b></a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="404.html">404 page</a></li>
+                                    <li><a href="shortcodes.html">Shortcodes</a></li>
+                                    <li><a href="post-video.html">Post with Video</a></li>
+                                    <li><a href="about.html">Full Width Page</a></li>
+                                    <li><a href="contact.html">Contact Form</a></li>
+                                </ul>
+                            </li>
 
-                </header>
-                <!-- end header (logo section) -->
+                            <li><a href="about.html">About</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
 
-                <!-- main menu -->
-                <nav class="navbar yamm navbar-default" id="main-navigation">
-                    <div class="container-fluid">
-                        <div class="navbar-header">
-                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                                <span class="sr-only">Toggle navigation</span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                            </button>
-                        </div>
-                        <div id="navbar" class="navbar-collapse collapse">
-                            <ul class="nav navbar-nav">
-                                <li class="dropdown">
-                                    <a href="index.html" class="dropdown-toggle" data-toggle="dropdown">Home <b class="caret"></b></a>
-                                    <ul class="dropdown-menu" role="menu">
-                                        <li><a href="index.html">Default</a></li>
-                                        <li><a href="index-blog.html">Blog Layout</a></li>
-                                        <li><a href="index-grid.html">Grid Layout</a></li>
-                                        <li><a href="index-list.html">List Layout</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="index-grid.html">Fashion</a></li>
-                                <li class="dropdown">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Features <b class="caret"></b></a>
-                                    <ul class="dropdown-menu" role="menu">
-                                        <li><a href="404.html">404 page</a></li>
-                                        <li><a href="shortcodes.html">Shortcodes</a></li>
-                                        <li><a href="post-video.html">Post with Video</a></li>
-                                        <li><a href="about.html">Full Width Page</a></li>
-                                        <li><a href="contact.html">Contact Form</a></li>
-                                    </ul>
-                                </li>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-search"></i></a>
+                                <div class="dropdown-menu searchbox" role="menu">
+                                    <form id="search" class="navbar-form search" role="search">
+                                        <div class="input-group">
+                                            <input type="search" class="form-control" placeholder="Type to search">
+                                            <span class="input-group-btn"><button type="submit" class="btn btn-default btn-submit"><i class="fa fa-angle-right"></i></button></span>
+                                        </div>
+                                    </form>
+                                </div>
+                            </li><!-- /.searchbox -->
+                        </ul>
+                    </div><!--/.nav-collapse -->
+                </div>
+            </nav>
+            <!-- end main menu -->
 
-                                <li><a href="about.html">About</a></li>
-                                <li><a href="contact.html">Contact</a></li>
-                            </ul>
+            <div class="content">
 
-                            <ul class="nav navbar-nav navbar-right">
-                                <li class="dropdown">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-search"></i></a>
-                                    <div class="dropdown-menu searchbox" role="menu">
-                                        <form id="search" class="navbar-form search" role="search">
-                                            <div class="input-group">
-                                                <input type="search" class="form-control" placeholder="Type to search">
-                                                <span class="input-group-btn"><button type="submit" class="btn btn-default btn-submit"><i class="fa fa-angle-right"></i></button></span>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </li><!-- /.searchbox -->
-                            </ul>
-                        </div><!--/.nav-collapse -->
-                    </div>
-                </nav>
-                <!-- end main menu -->
+                <div class="row">
 
-                <div class="content">
+                    <div class="col-md-8 main-content" >
 
-                    <div class="row">
+                        <!-- Main (left side) -->
+                        <section>
 
-                        <div class="col-md-8 main-content" >
+                            @foreach($posts as $post)
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="blog-post">
+                                        <div class="blog-post-container">
+                                            <a href="{{ route('post.read', ['post_id' => $post->id]) }}"><img style="width: 100%" src="{{ URL::asset('uploads/'.$post->image) }}" alt=""></a>
+                                        </div>
 
-                            <!-- Main (left side) -->
-                            <section>
+                                        <div class="blog-post-body">
 
-                                @foreach($posts as $post)
-                                <div class="row">
-                                    <div class="col-sm-12">
-                                        <div class="blog-post">
-                                            <div class="blog-post-container">
-                                                <a href="{{ route('post.read', ['post_id' => $post->id]) }}"><img style="width: 100%" src="{{ URL::asset('uploads/'.$post->image) }}" alt=""></a>
-                                            </div>
-
-                                            <div class="blog-post-body">
-
-                                                <div class="post-meta"><span class="post-category"><a href="#">Fashion</a></span></div>
-                                                <div class="divider"></div>
-                                                <h2 class="title"><a href="{{ route('post.read', ['post_id' => $post->id]) }}">{{ $post->title }}</a></h2>
-                                                <div class="post-meta">Posted on <span class="post-time">{{ date("M d, Y", strtotime($post->created_at)) }}</span> by <span class="post-author"><a href="post.html">{{ $post->name }}</a></span></div>
-                                                <p>{!! \Illuminate\Support\Str::words($post->strip_description, 30, '...') !!}</p>
-                                                <p>
-                                                <div class="more-button"><a href="{{ route('post.read', ['post_id' => $post->id]) }}"><span class="read-more-button">READ MORE</span></a></div>
-                                                <div class="wcircle-menu-button">
-                                                    <div class="wcircle-icon">
-                                                        <div class="wcircle-menu-icon"> <i class="fa fa-share-alt"></i> </div>
-                                                    </div>
-                                                    <div class="wcircle-menu" style="display:none;">
-                                                        <div class="wcircle-menu-item share-facebook"> <a href="post.html"><i class="fa fa-facebook"></i></a> </div>
-                                                        <div class="wcircle-menu-item share-youtube"> <a href="post.html"><i class="fa fa-youtube"></i></a> </div>
-                                                        <div class="wcircle-menu-item share-twitter"> <a href="post.html"><i class="fa fa-twitter"></i></a> </div>
-                                                        <div class="wcircle-menu-item share-google"> <a href="post.html"><i class="fa fa-google"></i></a> </div>
-                                                        <div class="wcircle-menu-item share-linkedin"> <a href="post.html"><i class="fa fa-linkedin"></i></a> </div>
-                                                        <div class="wcircle-menu-item share-pinterest"> <a href="post.html"><i class="fa fa-pinterest"></i></a> </div>
-                                                        <div class="wcircle-menu-item share-tumblr"> <a href="post.html"><i class="fa fa-tumblr"></i></a> </div>
-                                                    </div>
+                                            <div class="post-meta"><span class="post-category"><a href="#">Fashion</a></span></div>
+                                            <div class="divider"></div>
+                                            <h2 class="title"><a href="{{ route('post.read', ['post_id' => $post->id]) }}">{{ $post->title }}</a></h2>
+                                            <div class="post-meta">Posted on <span class="post-time">{{ date("M d, Y", strtotime($post->created_at)) }}</span> by <span class="post-author"><a href="post.html">{{ $post->name }}</a></span></div>
+                                            <p>{!! \Illuminate\Support\Str::words($post->strip_description, 30, '...') !!}</p>
+                                            <p>
+                                            <div class="more-button"><a href="{{ route('post.read', ['post_id' => $post->id]) }}"><span class="read-more-button">READ MORE</span></a></div>
+                                            <div class="wcircle-menu-button">
+                                                <div class="wcircle-icon">
+                                                    <div class="wcircle-menu-icon"> <i class="fa fa-share-alt"></i> </div>
                                                 </div>
-                                                </p>
+                                                <div class="wcircle-menu" style="display:none;">
+                                                    <div class="wcircle-menu-item share-facebook"> <a href="post.html"><i class="fa fa-facebook"></i></a> </div>
+                                                    <div class="wcircle-menu-item share-youtube"> <a href="post.html"><i class="fa fa-youtube"></i></a> </div>
+                                                    <div class="wcircle-menu-item share-twitter"> <a href="post.html"><i class="fa fa-twitter"></i></a> </div>
+                                                    <div class="wcircle-menu-item share-google"> <a href="post.html"><i class="fa fa-google"></i></a> </div>
+                                                    <div class="wcircle-menu-item share-linkedin"> <a href="post.html"><i class="fa fa-linkedin"></i></a> </div>
+                                                    <div class="wcircle-menu-item share-pinterest"> <a href="post.html"><i class="fa fa-pinterest"></i></a> </div>
+                                                    <div class="wcircle-menu-item share-tumblr"> <a href="post.html"><i class="fa fa-tumblr"></i></a> </div>
+                                                </div>
                                             </div>
+                                            </p>
                                         </div>
                                     </div>
                                 </div>
-                                @endforeach
-
-                            </section>
-                            <nav>
-                                {{ $posts->links() }}
-                            </nav>
-                        </div>
-
-                        <div class="col-md-4">
-
-                            <!-- SIDE BAR -->
-                            <div id="sidebar">
-
-                                <!-- sidebar-module-author -->
-                                <div class="sidebar-module">
-
-                                    <div class="sidebar-content">
-
-                                        <h4 class="sidebar-heading"><span>About Us</span></h4>
-
-                                        <a href="post.html"><img src="images/about-me.jpg" alt="fashion" /></a>
-                                        <p>Meh synth Schlitz, tempor duis single-origin coffee ea next level ethnic fingerstache fanny pack nostrud. Photo booth anim 8-bit hella, PBR 3 wolf moon beard Helvetica.</p>
-                                        <a href="post.html" class="more-button"><span class="read-more-button">READ MORE</span></a>
-                                    </div>
-                                </div>
-                                <!-- end sidebar-module-author -->
-
-                                <!-- sidebar-module latest posts -->
-                                <div class="sidebar-module">
-
-                                    <div class="sidebar-content">
-
-                                        <h4 class="sidebar-heading"><span>Latest</span></h4>
-
-                                        @foreach($archives as $archive)
-                                        <div class="widget-post" id="latest_posts">
-                                            <div class="widget-post-circle">
-                                                {{ $loop->iteration }}
-                                            </div>
-                                            <div class="widget-post-entry">
-                                                <h3 class="widget-post-title"><a href="{{ route('post.read', ['post_id' => $archive->id]) }}">{{ $archive->title }}</a></h3>
-                                                <div class="widget-post-meta"><i class="fa fa-clock-o"></i>{{ date("d. M Y", strtotime($archive->created_at)) }}<span class="widget-post-comments"><i class="fa fa-comments"></i>15</span></div>
-                                            </div>
-                                        </div>
-                                        @endforeach
-
-                                    </div>
-                                </div>
-                                <!-- end sidebar-module -->
-
-                                <!-- sidebar-module -->
-                                <div class="sidebar-module">
-                                    <div class="sidebar-content">
-                                        <h4 class="sidebar-heading"><span>Social</span></h4>
-                                        <div class="widget-social">
-                                            <a href="http://facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a>
-                                            <a href="http://twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a>
-                                            <a href="http://instagram.com/" target="_blank"><i class="fa fa-instagram"></i></a>
-                                            <a href="http://pinterest.com/" target="_blank"><i class="fa fa-pinterest"></i></a>
-                                            <a href="http://plus.google.com/#" target="_blank"><i class="fa fa-google-plus"></i></a>
-                                            <a href="http://tumblr.com/" target="_blank"><i class="fa fa-tumblr"></i></a>
-                                            <a href="#" target="_blank"><i class="fa fa-rss"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- end sidebar-module -->
-
-                                <!-- sidebar-module -->
-                                <div class="sidebar-module">
-
-                                    <div class="sidebar-content">
-                                        <h4 class="sidebar-heading"><span>Fashion</span></h4>
-                                        <div class="widget-post">
-                                            <div class="widget-post-image">
-                                                <a href="post.html"><img src="images/demo/300x300-1.jpg" alt="fashion" /></a>
-                                            </div>
-                                            <div class="widget-post-entry">
-                                                <h3 class="widget-post-title"><a href="post.html">Watch Top Brands and Agencies Live-Tweet</a></h3>
-                                                <div class="widget-post-meta"><i class="fa fa-clock-o"></i>15. MARCH 2015 <span class="widget-post-comments"><i class="fa fa-comments"></i>11</span></div>
-                                            </div>
-                                        </div>
-
-                                        <div class="widget-post">
-                                            <div class="widget-post-image">
-                                                <a href="post.html"><img src="images/demo/300x300-5.jpg" alt="fashion" /></a>
-                                            </div>
-                                            <div class="widget-post-entry">
-                                                <h3 class="widget-post-title"><a href="post.html">The Influences of Modern Minimalism</a></h3>
-                                                <div class="widget-post-meta"><i class="fa fa-clock-o"></i> 15. JANUARY 2015 <span class="widget-post-comments"><i class="fa fa-comments"></i>6</span></div>
-                                            </div>
-                                        </div>
-
-                                        <div class="widget-post">
-                                            <div class="widget-post-image">
-                                                <a href="post.html"><img src="images/demo/300x300-7.jpg" alt="fashion" /></a>
-                                            </div>
-                                            <div class="widget-post-entry">
-                                                <h3 class="widget-post-title"><a href="post.html">Coors Light Gets New Look, Miller Lite Targets Biculturals</a></h3>
-                                                <div class="widget-post-meta"><i class="fa fa-clock-o"></i> 15. JANUARY 2015</div>
-                                            </div>
-                                        </div>
-
-                                        <div class="widget-post">
-                                            <div class="widget-post-image">
-                                                <a href="post.html"><img src="images/demo/300x300-6.jpg" alt="fashion" /></a>
-                                            </div>
-                                            <div class="widget-post-entry">
-                                                <h3 class="widget-post-title"><a href="post.html">Facebook to Start Telling Brands Who's Talking About What Topics</a></h3>
-                                                <div class="widget-post-meta"><i class="fa fa-clock-o"></i> 15. JANUARY 2015 <span class="widget-post-comments"><i class="fa fa-comments"></i>14</span></div>
-                                            </div>
-                                        </div>
-
-                                        <div class="widget-post">
-                                            <div class="widget-post-image">
-                                                <a href="post.html"><img src="images/demo/300x300-3.jpg" alt="fashion" /></a>
-                                            </div>
-                                            <div class="widget-post-entry">
-                                                <h3 class="widget-post-title"><a href="post.html">Notegraphy, Graphic Design Meet Note-Taking</a></h3>
-                                                <div class="widget-post-meta"><i class="fa fa-clock-o"></i> 15. JANUARY 2015</div>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-                                <!-- end sidebar-module -->
-
-                                <!-- sidebar-module latest comments -->
-                                <div class="sidebar-module">
-
-                                    <div class="sidebar-content">
-                                        <h4 class="sidebar-heading"><span>Latest Comments</span></h4>
-                                        <div class="lcomments-item">
-                                            <a href="#">Mr. Wordpress</a> on <a href="post.html">Monotype Typecast, Stately Type and TDC Generator</a>
-                                        </div>
-                                        <div class="lcomments-item">
-                                            <a href="#">Jeremy Clarkson</a> on <a href="post.html">Five centuries, but also the nation</a>
-                                        </div>
-                                        <div class="lcomments-item">
-                                            <a href="#">John Doe</a> on <a href="post.html">12 Animated Magnets from Fictional Places</a>
-                                        </div>
-                                        <div class="lcomments-item">
-                                            <a href="#">Claire</a> on <a href="post.html">Wonderful Pencil Drawings by Stefan</a>
-                                        </div>
-                                        <div class="lcomments-item">
-                                            <a href="#">Sarah Lee</a> on <a href="post.html">Five centuries, but also the nation</a>
-                                        </div>
-                                    </div>
-
-                                </div>
-                                <!-- end sidebar-module latest comments -->
-
-                                <!-- sidebar-module-tag-cloud -->
-                                <div class="sidebar-module">
-
-                                    <div class="sidebar-content">
-                                        <h4 class="sidebar-heading"><span>Tag cloud</span></h4>
-                                        <div class="tag-cloud">
-                                            <a href="#">Fashion</a>
-                                            <a href="#">Design</a>
-                                            <a href="#">Architecture</a>
-                                            <a href="#">Gadgets</a>
-                                            <a href="#">Cars</a>
-                                            <a href="#">Music</a>
-                                            <a href="#">Recipe</a>
-                                            <a href="#">Lifestyle</a>
-                                            <a href="#">Travel</a>
-                                        </div>
-                                    </div>
-
-                                </div>
-                                <!-- end sidebar-module-tag-cloud -->
-
-                                <!-- end SIDE BAR -->
                             </div>
+                            @endforeach
+
+                        </section>
+                        <nav>
+                            {{ $posts->links() }}
+                        </nav>
+                    </div>
+
+                    <div class="col-md-4">
+
+                        <!-- SIDE BAR -->
+                        <div id="sidebar">
+
+                            <!-- sidebar-module-author -->
+                            <div class="sidebar-module">
+
+                                <div class="sidebar-content">
+
+                                    <h4 class="sidebar-heading"><span>About Us</span></h4>
+
+                                    <a href="post.html"><img src="images/about-me.jpg" alt="fashion" /></a>
+                                    <p>Meh synth Schlitz, tempor duis single-origin coffee ea next level ethnic fingerstache fanny pack nostrud. Photo booth anim 8-bit hella, PBR 3 wolf moon beard Helvetica.</p>
+                                    <a href="post.html" class="more-button"><span class="read-more-button">READ MORE</span></a>
+                                </div>
+                            </div>
+                            <!-- end sidebar-module-author -->
+
+                            <!-- sidebar-module latest posts -->
+                            <div class="sidebar-module">
+
+                                <div class="sidebar-content">
+
+                                    <h4 class="sidebar-heading"><span>Latest</span></h4>
+
+                                    @foreach($archives as $archive)
+                                    <div class="widget-post" id="latest_posts">
+                                        <div class="widget-post-circle">
+                                            {{ $loop->iteration }}
+                                        </div>
+                                        <div class="widget-post-entry">
+                                            <h3 class="widget-post-title"><a href="{{ route('post.read', ['post_id' => $archive->id]) }}">{{ $archive->title }}</a></h3>
+                                            <div class="widget-post-meta"><i class="fa fa-clock-o"></i>{{ date("d. M Y", strtotime($archive->created_at)) }}<span class="widget-post-comments"><i class="fa fa-comments"></i>15</span></div>
+                                        </div>
+                                    </div>
+                                    @endforeach
+
+                                </div>
+                            </div>
+                            <!-- end sidebar-module -->
+
+                            <!-- sidebar-module -->
+                            <div class="sidebar-module">
+                                <div class="sidebar-content">
+                                    <h4 class="sidebar-heading"><span>Social</span></h4>
+                                    <div class="widget-social">
+                                        <a href="http://facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a>
+                                        <a href="http://twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a>
+                                        <a href="http://instagram.com/" target="_blank"><i class="fa fa-instagram"></i></a>
+                                        <a href="http://pinterest.com/" target="_blank"><i class="fa fa-pinterest"></i></a>
+                                        <a href="http://plus.google.com/#" target="_blank"><i class="fa fa-google-plus"></i></a>
+                                        <a href="http://tumblr.com/" target="_blank"><i class="fa fa-tumblr"></i></a>
+                                        <a href="#" target="_blank"><i class="fa fa-rss"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- end sidebar-module -->
+
+                            <!-- sidebar-module -->
+                            <div class="sidebar-module">
+
+                                <div class="sidebar-content">
+                                    <h4 class="sidebar-heading"><span>Fashion</span></h4>
+                                    <div class="widget-post">
+                                        <div class="widget-post-image">
+                                            <a href="post.html"><img src="images/demo/300x300-1.jpg" alt="fashion" /></a>
+                                        </div>
+                                        <div class="widget-post-entry">
+                                            <h3 class="widget-post-title"><a href="post.html">Watch Top Brands and Agencies Live-Tweet</a></h3>
+                                            <div class="widget-post-meta"><i class="fa fa-clock-o"></i>15. MARCH 2015 <span class="widget-post-comments"><i class="fa fa-comments"></i>11</span></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="widget-post">
+                                        <div class="widget-post-image">
+                                            <a href="post.html"><img src="images/demo/300x300-5.jpg" alt="fashion" /></a>
+                                        </div>
+                                        <div class="widget-post-entry">
+                                            <h3 class="widget-post-title"><a href="post.html">The Influences of Modern Minimalism</a></h3>
+                                            <div class="widget-post-meta"><i class="fa fa-clock-o"></i> 15. JANUARY 2015 <span class="widget-post-comments"><i class="fa fa-comments"></i>6</span></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="widget-post">
+                                        <div class="widget-post-image">
+                                            <a href="post.html"><img src="images/demo/300x300-7.jpg" alt="fashion" /></a>
+                                        </div>
+                                        <div class="widget-post-entry">
+                                            <h3 class="widget-post-title"><a href="post.html">Coors Light Gets New Look, Miller Lite Targets Biculturals</a></h3>
+                                            <div class="widget-post-meta"><i class="fa fa-clock-o"></i> 15. JANUARY 2015</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="widget-post">
+                                        <div class="widget-post-image">
+                                            <a href="post.html"><img src="images/demo/300x300-6.jpg" alt="fashion" /></a>
+                                        </div>
+                                        <div class="widget-post-entry">
+                                            <h3 class="widget-post-title"><a href="post.html">Facebook to Start Telling Brands Who's Talking About What Topics</a></h3>
+                                            <div class="widget-post-meta"><i class="fa fa-clock-o"></i> 15. JANUARY 2015 <span class="widget-post-comments"><i class="fa fa-comments"></i>14</span></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="widget-post">
+                                        <div class="widget-post-image">
+                                            <a href="post.html"><img src="images/demo/300x300-3.jpg" alt="fashion" /></a>
+                                        </div>
+                                        <div class="widget-post-entry">
+                                            <h3 class="widget-post-title"><a href="post.html">Notegraphy, Graphic Design Meet Note-Taking</a></h3>
+                                            <div class="widget-post-meta"><i class="fa fa-clock-o"></i> 15. JANUARY 2015</div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <!-- end sidebar-module -->
+
+                            <!-- sidebar-module latest comments -->
+                            <div class="sidebar-module">
+
+                                <div class="sidebar-content">
+                                    <h4 class="sidebar-heading"><span>Latest Comments</span></h4>
+                                    <div class="lcomments-item">
+                                        <a href="#">Mr. Wordpress</a> on <a href="post.html">Monotype Typecast, Stately Type and TDC Generator</a>
+                                    </div>
+                                    <div class="lcomments-item">
+                                        <a href="#">Jeremy Clarkson</a> on <a href="post.html">Five centuries, but also the nation</a>
+                                    </div>
+                                    <div class="lcomments-item">
+                                        <a href="#">John Doe</a> on <a href="post.html">12 Animated Magnets from Fictional Places</a>
+                                    </div>
+                                    <div class="lcomments-item">
+                                        <a href="#">Claire</a> on <a href="post.html">Wonderful Pencil Drawings by Stefan</a>
+                                    </div>
+                                    <div class="lcomments-item">
+                                        <a href="#">Sarah Lee</a> on <a href="post.html">Five centuries, but also the nation</a>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <!-- end sidebar-module latest comments -->
+
+                            <!-- sidebar-module-tag-cloud -->
+                            <div class="sidebar-module">
+
+                                <div class="sidebar-content">
+                                    <h4 class="sidebar-heading"><span>Tag cloud</span></h4>
+                                    <div class="tag-cloud">
+                                        <a href="#">Fashion</a>
+                                        <a href="#">Design</a>
+                                        <a href="#">Architecture</a>
+                                        <a href="#">Gadgets</a>
+                                        <a href="#">Cars</a>
+                                        <a href="#">Music</a>
+                                        <a href="#">Recipe</a>
+                                        <a href="#">Lifestyle</a>
+                                        <a href="#">Travel</a>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <!-- end sidebar-module-tag-cloud -->
+
+                            <!-- end SIDE BAR -->
                         </div>
+                    </div>
 
-                    </div><!-- end row -->
+                </div><!-- end row -->
 
-                </div><!-- end content -->
+            </div><!-- end content -->
 
 
-                <p id="back-top">
-                    <a href="#top"><i class="fa fa-angle-up"></i></a>
-                </p>
+            <p id="back-top">
+                <a href="#top"><i class="fa fa-angle-up"></i></a>
+            </p>
 
-            </div> <!-- container div -->
+        </div> <!-- container div -->
 
-        </div> <!-- boxed div -->
+    </div> <!-- boxed div -->
 
-        <footer class="footer">
+    <footer class="footer">
 
-            <div class="footer-dark">
-                <div class="footer-socials">
-                    <a href="https://www.twitter.com/d" class="social"><i class="fa fa-twitter"></i> Twitter</a>
-                    <a href="http://www.bloglovin.com//d" class="social"><i class="fa fa-plus"></i> Bloglovin</a>
-                    <a href="https://www.facebook.com/d" class="social"><i class="fa fa-facebook-square"></i> Facebook</a>
-                    <a href="https://dribbble.com/d" class="social dribbble" rel="publisher"><i class="fa fa-dribbble"></i> Dribbble</a>
-                    <a href="https://plus.google.com/+d" class="social google"><i class="fa fa-google-plus-square"></i> Google+</a>
-                </div>
-
-                <div class="footer-menu">
-                    <a href="#" class="social">About Us</a>
-                    <a href="#" class="social">Archives</a>
-                    <a href="#" class="social">Advertise</a>
-                    <a href="#" class="social">Contact Us</a>
-                </div>
+        <div class="footer-dark">
+            <div class="footer-socials">
+                <a href="https://www.twitter.com/d" class="social"><i class="fa fa-twitter"></i> Twitter</a>
+                <a href="http://www.bloglovin.com//d" class="social"><i class="fa fa-plus"></i> Bloglovin</a>
+                <a href="https://www.facebook.com/d" class="social"><i class="fa fa-facebook-square"></i> Facebook</a>
+                <a href="https://dribbble.com/d" class="social dribbble" rel="publisher"><i class="fa fa-dribbble"></i> Dribbble</a>
+                <a href="https://plus.google.com/+d" class="social google"><i class="fa fa-google-plus-square"></i> Google+</a>
             </div>
 
-            <div class="footer-bottom">
-                <i class="fa fa-copyright"></i> Copyright 2015. All rights reserved.<br />
-                Theme made by <a href="http://themeforest.net/user/different-themes/portfolio?ref=different-themes">Different Themes</a>
+            <div class="footer-menu">
+                <a href="#" class="social">About Us</a>
+                <a href="#" class="social">Archives</a>
+                <a href="#" class="social">Advertise</a>
+                <a href="#" class="social">Contact Us</a>
             </div>
+        </div>
 
-        </footer>
+        <div class="footer-bottom">
+            <i class="fa fa-copyright"></i> Copyright 2015. All rights reserved.<br />
+            Theme made by <a href="http://themeforest.net/user/different-themes/portfolio?ref=different-themes">Different Themes</a>
+        </div>
 
-    </div>
-
+    </footer>
 
 {{--    <script type="text/javascript" src="{{ URL::to('js/jquery.min.js') }}"></script>--}}
 {{--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">--}}
