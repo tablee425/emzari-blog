@@ -63,8 +63,7 @@ class HomeController extends Controller
     
     public function createPost(Request $request)
     {
-//        $tags = explode(",", $request->tags);
-//        var_dump($tags);
+//        var_dump(window.global_variable);
 //        die;
         $detail = $request->summernoteInput;
         

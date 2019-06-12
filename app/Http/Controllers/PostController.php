@@ -11,7 +11,7 @@ use mysql_xdevapi\Session;
 class PostController extends Controller
 {
     public function getIndex() {
-        $posts = DB::table('users')->leftjoin('posts', 'users.id', '=', 'posts.author')->paginate(9);
+        $posts = DB::table('users')->leftjoin('posts', 'users.id', '=', 'posts.author')->paginate(5);
         $archives = DB::table('posts')->orderBy('id', 'DESC')->take(3)->get();
         $data = array(
             'posts' => $posts,
