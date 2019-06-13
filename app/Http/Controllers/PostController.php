@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Controllers;
 use App\Subscribe;
+use App\Tag;
 use App\Summernote;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -13,9 +14,11 @@ class PostController extends Controller
     public function getIndex() {
         $posts = DB::table('users')->leftjoin('posts', 'users.id', '=', 'posts.author')->paginate(5);
         $archives = DB::table('posts')->orderBy('id', 'DESC')->take(3)->get();
+        $tags = DB::table('tags')->get();
         $data = array(
             'posts' => $posts,
-            'archives' => $archives
+            'archives' => $archives,
+            'tags' => $tags
         );
         return view('post/index', $data);
     }

@@ -214,15 +214,9 @@
                                 <div class="sidebar-content">
                                     <h4 class="sidebar-heading"><span>Tag cloud</span></h4>
                                     <div class="tag-cloud">
-                                        <a href="#">Fashion</a>
-                                        <a href="#">Design</a>
-                                        <a href="#">Architecture</a>
-                                        <a href="#">Gadgets</a>
-                                        <a href="#">Cars</a>
-                                        <a href="#">Music</a>
-                                        <a href="#">Recipe</a>
-                                        <a href="#">Lifestyle</a>
-                                        <a href="#">Travel</a>
+                                        @foreach($tags as $tag)
+                                            <a href="#">{{ $tag->tagName }}</a>
+                                        @endforeach
                                     </div>
                                 </div>
 

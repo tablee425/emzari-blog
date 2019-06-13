@@ -46,6 +46,7 @@
 
     <!-- only for demo -->
     <link href="{{ URL::to('css/new/demo-settings.css') }}" rel="stylesheet">
+
 </head>
 <body id="top">
 {{--    @include('partials.header')--}}

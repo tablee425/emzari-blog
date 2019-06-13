@@ -45,24 +45,16 @@ class HomeController extends Controller
         return view('home', ['posts' => $posts, 'count' => $count, 'archives' => $archives]);
     }
     
-    public function getPostForm()
+    public function getPostForm($id)
     {
-        $tags = [
-            ['title' => 'PHP', 'checked' => false],
-            ['title' => 'Javascript', 'checked' => false],
-            ['title' => 'Java', 'checked' => false],
-            ['title' => 'Swift', 'checked' => false],
-            ['title' => 'C++', 'checked' => false],
-            ['title' => 'Dart', 'checked' => false],
-            ['title' => 'C#', 'checked' => false],
-            ['title' => 'MySQL', 'checked' => false],
-            ['title' => 'jQuery', 'checked' => false]
-        ];
-        return view('post/post_form', ['tags' => $tags]);
+        $tag = DB::table('tags')->where('tagId', $id)->get();
+        return view('post/post_form', ['tagName' => $tag[0]->tagName]);
     }
     
     public function createPost(Request $request)
     {
+        var_dump($request->summernoteInput);
+        die;
         $detail = $request->summernoteInput;
         
         $dom = new \domdocument();

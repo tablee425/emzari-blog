@@ -20,7 +20,7 @@ Route::get('/summernote_display','SummernoteController@show')->name('summernoteD
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/author/post', 'HomeController@getPostForm')->name('post.getform');
+Route::get('/author/post/tag{id}', 'HomeController@getPostForm')->name('post.getform');
 Route::post('/author/post', 'HomeController@createPost')->name('post.createform');
 Route::get('/author/post/detail/{id}', 'HomeController@getPost')->name('post.detail');
 Route::get('/author/post/edit/{id}', 'HomeController@editPost')->name('post.edit');
