@@ -2,7 +2,7 @@ jQuery(document).ready(function() {
 	jQuery("body").append("<div class='demo-settings'></div>");
 	jQuery(".demo-settings").append("<a href='#show-settings' class='demo-button'><i class='fa fa-gear'></i>Settings</a>");
 	jQuery(".demo-settings").append("<div class='demo-options'>"+
-										"<div class='title'>Demo Settings</div>"+
+										"<div class='title'>Visual Settings</div>"+
 										"<a href='#demo' rel='font-options' class='option'><i class='fa fa-font'></i><span>Font settings</span><font>Menu and heading font</font></a>"+
 										"<div class='option-box' rel='font-options'>"+
 											"<div alt='font-options'>"+

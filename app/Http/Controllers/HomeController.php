@@ -63,8 +63,6 @@ class HomeController extends Controller
     
     public function createPost(Request $request)
     {
-//        var_dump(window.global_variable);
-//        die;
         $detail = $request->summernoteInput;
         
         $dom = new \domdocument();

@@ -3,7 +3,7 @@
 <head>
 {{--    <meta charset="UTF-8">--}}
 {{--    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">--}}
-{{--    <title>@yield('title')</title>--}}
+    <title>@yield('title')</title>
 
 {{--    <link rel="stylesheet" href="{{ URL::to('css/bootstrap.min.css') }}">--}}
 {{--    <link rel="stylesheet" href="{{ URL::to('css/dashboard.css') }}">--}}
@@ -35,7 +35,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Firenze - Responsive Blog HTML5 Template</title>
+{{--    <title>Firenze - Responsive Blog HTML5 Template</title>--}}
 
     <link href="{{ URL::to('css/new/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ URL::to('css/new/style.css') }}" rel="stylesheet">
@@ -50,6 +50,7 @@
 <body id="top">
 {{--    @include('partials.header')--}}
     @yield('content')
+    @include('partials.footer')
     @yield('scripts')
 <script type="text/javascript" src="{{ URL::to('js/new/jquery-latest.min.js') }}"></script>
 <script type="text/javascript" src="{{ URL::to('js/new/bootstrap.min.js') }}"></script>

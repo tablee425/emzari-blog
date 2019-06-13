@@ -58,6 +58,7 @@
                     </div>
                     <div id="navbar" class="navbar-collapse collapse">
                         <ul class="nav navbar-nav">
+                            <li><a href="{{ URL::to('/') }}">Home</a></li>
                             <li class="dropdown">
                                 <a href="index.html" class="dropdown-toggle" data-toggle="dropdown">Home <b class="caret"></b></a>
                                 <ul class="dropdown-menu" role="menu">
@@ -84,17 +85,19 @@
                         </ul>
 
                         <ul class="nav navbar-nav navbar-right">
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-search"></i></a>
-                                <div class="dropdown-menu searchbox" role="menu">
-                                    <form id="search" class="navbar-form search" role="search">
-                                        <div class="input-group">
-                                            <input type="search" class="form-control" placeholder="Type to search">
-                                            <span class="input-group-btn"><button type="submit" class="btn btn-default btn-submit"><i class="fa fa-angle-right"></i></button></span>
-                                        </div>
-                                    </form>
-                                </div>
-                            </li><!-- /.searchbox -->
+                            <li><a href="{{ route('register') }}">REGISTER</a></li>
+                            <li><a href="{{ route('login') }}">LOGIN</a></li>
+{{--                            <li class="dropdown">--}}
+{{--                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-search"></i></a>--}}
+{{--                                <div class="dropdown-menu searchbox" role="menu">--}}
+{{--                                    <form id="search" class="navbar-form search" role="search">--}}
+{{--                                        <div class="input-group">--}}
+{{--                                            <input type="search" class="form-control" placeholder="Type to search">--}}
+{{--                                            <span class="input-group-btn"><button type="submit" class="btn btn-default btn-submit"><i class="fa fa-angle-right"></i></button></span>--}}
+{{--                                        </div>--}}
+{{--                                    </form>--}}
+{{--                                </div>--}}
+{{--                            </li><!-- /.searchbox -->--}}
                         </ul>
                     </div><!--/.nav-collapse -->
                 </div>
@@ -335,31 +338,6 @@
 
     </div> <!-- boxed div -->
 
-    <footer class="footer">
-
-        <div class="footer-dark">
-            <div class="footer-socials">
-                <a href="https://www.twitter.com/d" class="social"><i class="fa fa-twitter"></i> Twitter</a>
-                <a href="http://www.bloglovin.com//d" class="social"><i class="fa fa-plus"></i> Bloglovin</a>
-                <a href="https://www.facebook.com/d" class="social"><i class="fa fa-facebook-square"></i> Facebook</a>
-                <a href="https://dribbble.com/d" class="social dribbble" rel="publisher"><i class="fa fa-dribbble"></i> Dribbble</a>
-                <a href="https://plus.google.com/+d" class="social google"><i class="fa fa-google-plus-square"></i> Google+</a>
-            </div>
-
-            <div class="footer-menu">
-                <a href="#" class="social">About Us</a>
-                <a href="#" class="social">Archives</a>
-                <a href="#" class="social">Advertise</a>
-                <a href="#" class="social">Contact Us</a>
-            </div>
-        </div>
-
-        <div class="footer-bottom">
-            <i class="fa fa-copyright"></i> Copyright 2015. All rights reserved.<br />
-            Theme made by <a href="http://themeforest.net/user/different-themes/portfolio?ref=different-themes">Different Themes</a>
-        </div>
-
-    </footer>
 
 {{--    <script type="text/javascript" src="{{ URL::to('js/jquery.min.js') }}"></script>--}}
 {{--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">--}}

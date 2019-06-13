@@ -1051,6 +1051,10 @@ and (max-width : 480px) {
 	font-style: italic;
 }
 
+.post-desc img {
+    width:100% !important;
+}
+
 blockquote cite {
     color: #999999;
     font-size: 14px;
