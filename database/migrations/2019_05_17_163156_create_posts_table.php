@@ -20,6 +20,7 @@ class CreatePostsTable extends Migration
             $table->text('strip_description');
             $table->text('image');
             $table->integer('author');
+            $table->integer('tag');
             $table->timestamps();
         });
     }

@@ -42,19 +42,23 @@ class HomeController extends Controller
         $author = DB::table('users')->where('email', Auth::user()->email)->get()->first()->id;
         
         $archives = DB::table('posts')->where('author', $author)->orderBy('id', 'DESC')->take(3)->get();
-        return view('home', ['posts' => $posts, 'count' => $count, 'archives' => $archives]);
+        $tags = DB::table('tags')->get();
+    
+        if (count(DB::table('posts')->where('author', $author)->get()) == 0) {
+            $posts = [];
+        }
+        
+        return view('home', ['posts' => $posts, 'count' => $count, 'archives' => $archives, 'tags' => $tags]);
     }
     
     public function getPostForm($id)
     {
         $tag = DB::table('tags')->where('tagId', $id)->get();
-        return view('post/post_form', ['tagName' => $tag[0]->tagName]);
+        return view('post/post_form', ['tagName' => $tag[0]->tagName, 'tagId' => $tag[0]->tagId]);
     }
     
     public function createPost(Request $request)
     {
-        var_dump($request->summernoteInput);
-        die;
         $detail = $request->summernoteInput;
         
         $dom = new \domdocument();
@@ -98,6 +102,7 @@ class HomeController extends Controller
         $post->strip_description = strip_tags($detail);
         $post->image = $thumbnail;
         $post->author = $author;
+        $post->tag = $request->tagId;
         $post->save();
         $new_id = $post->id;
         

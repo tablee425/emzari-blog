@@ -60,9 +60,13 @@
                             @endforeach
 
                         </section>
-                        <nav>
-                            {{ $posts->links() }}
-                        </nav>
+                        @if(count($posts) > 0)
+                            <nav>
+                                {{ $posts->links() }}
+                            </nav>
+                        @else
+                            <p style="line-height: 150px; text-align: center;color: #636E88;font-size: 20px;font-style: italic;">No Post To Display</p>
+                        @endif
                     </div>
 
                     <div class="col-md-4">
@@ -215,7 +219,7 @@
                                     <h4 class="sidebar-heading"><span>Tag cloud</span></h4>
                                     <div class="tag-cloud">
                                         @foreach($tags as $tag)
-                                            <a href="#">{{ $tag->tagName }}</a>
+                                            <a href="{{ Url::to('/tag/' . $tag->tagId) }}">{{ $tag->tagName }}</a>
                                         @endforeach
                                     </div>
                                 </div>

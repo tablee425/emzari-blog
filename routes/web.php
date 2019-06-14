@@ -12,6 +12,7 @@
 */
 
 Route::get('/', 'PostController@getIndex')->name('index');
+Route::get('/tag/{id}', 'PostController@getIndexWithTag')->name('index.tag');
 
 Route::get('/summernote','SummernoteController@getIndex');
 Route::post('/summernote','SummernoteController@store')->name('summernotePersist');

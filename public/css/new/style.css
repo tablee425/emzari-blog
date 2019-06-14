@@ -1951,3 +1951,6 @@ and (max-width : 480px) {
 .wcircle-menu-item a {
     color: #fff;
 }
+.modal-backdrop.show {
+    height: 0;
+}

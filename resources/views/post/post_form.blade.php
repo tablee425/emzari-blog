@@ -155,6 +155,9 @@
 
                 <form action="{{route('post.createform')}}" method="POST">
                     @csrf
+                    <input style="height: 0;display: none;" value="{{ $tagId }}" name="tagId" />
+                    <label style="margin-top: 20px; color: darkslategrey;text-transform: uppercase;">New &nbsp {{ $tagName }} &nbsp POST</label>
+                    <br/>
                     <label style="margin-top: 20px;">Title</label>
                     <input id="title" type="text" required name="title" style="width: 100%;">
                     <label style="margin-top: 20px;">Description</label>
