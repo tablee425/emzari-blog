@@ -26,6 +26,21 @@ class PostController extends Controller
         return view('post/index', $data);
     }
     
+    public function getIndexLayoutGrid() {
+        $posts = DB::table('users')->leftjoin('posts', 'users.id', '=', 'posts.author')->paginate(5);
+        $archives = DB::table('posts')->orderBy('id', 'DESC')->take(3)->get();
+        $tags = DB::table('tags')->get();
+        if (count(DB::table('posts')->get()) == 0) {
+            $posts = [];
+        }
+        $data = array(
+            'posts' => $posts,
+            'archives' => $archives,
+            'tags' => $tags
+        );
+        return view('post/index_grid', $data);
+    }
+    
     public function getIndexWithTag($id) {
         $posts = DB::table('users')->where('tag', $id)->leftjoin('posts', 'users.id', '=', 'posts.author')->paginate(5);
         $archives = DB::table('posts')->orderBy('id', 'DESC')->take(3)->get();

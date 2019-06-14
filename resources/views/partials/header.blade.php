@@ -95,12 +95,10 @@
                     </li>
                 @endguest
                 <li class="dropdown">
-                    <a href="index.html" class="dropdown-toggle" data-toggle="dropdown">Home <b class="caret"></b></a>
+                    <a href="index.html" class="dropdown-toggle" data-toggle="dropdown">Layout <b class="caret"></b></a>
                     <ul class="dropdown-menu" role="menu">
-                        <li><a href="index.html">Default</a></li>
-                        <li><a href="index-blog.html">Blog Layout</a></li>
-                        <li><a href="index-grid.html">Grid Layout</a></li>
-                        <li><a href="index-list.html">List Layout</a></li>
+                        <li><a href="{{ route('index') }}">List</a></li>
+                        <li><a href="{{ route('index.grid') }}">Grid</a></li>
                     </ul>
                 </li>
                 <li><a href="index-grid.html">Fashion</a></li>

@@ -13,6 +13,7 @@
 
 Route::get('/', 'PostController@getIndex')->name('index');
 Route::get('/tag/{id}', 'PostController@getIndexWithTag')->name('index.tag');
+Route::get('/layout/grid', 'PostController@getIndexLayoutGrid')->name('index.grid');
 
 Route::get('/summernote','SummernoteController@getIndex');
 Route::post('/summernote','SummernoteController@store')->name('summernotePersist');
