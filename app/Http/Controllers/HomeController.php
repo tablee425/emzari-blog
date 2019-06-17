@@ -247,4 +247,9 @@ class HomeController extends Controller
         }
         return false;
     }
+    
+    public function postComment(Request $request, $post_id) {
+        echo $post_id;
+        die;
+    }
 }

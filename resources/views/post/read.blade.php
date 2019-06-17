@@ -38,15 +38,6 @@
                                             <div class="post-meta">Posted on <span class="post-time">February 23, 2015</span> by <span class="post-author"><a href="post.html">Different Themes</a></span></div>
                                             <div class="post-desc">{!! $summernote->content !!}</div>
 
-                                            <div class="tag-cloud">
-                                                <a href="#">Fashion</a>
-                                                <a href="#">Design</a>
-                                                <a href="#">Architecture</a>
-                                                <a href="#">Gadgets</a>
-                                                <a href="#">Cars</a>
-                                                <a href="#">Computers</a>
-                                            </div>
-
                                         </div>
                                     </article>
                                     <!-- post end -->
@@ -83,67 +74,36 @@
                                             <li>
                                                 <div class="comment">
                                                     <div class="comment-author">
-                                                        <img src="images/demo/avatar.png" alt="Author">
+                                                        <img src="/images/demo/avatar.png" alt="Author">
                                                         <a href="#" rel="external nofollow" class="comment-author-name">James</a>
                                                         <span class="comment-meta">March 17, 2015 at 18:45 AM</span>
                                                     </div>
                                                     <div class="comment-body">
                                                         <p>Maecenas lobortis ante leo, ac rhoncus nisl elementum et. Proin quis ligula pulvinar, commodo enim eget, lacinia dolor. Nulla lacinia viverra nulla a interdum.</p>
-                                                        <a href="#" class="comment-reply"><i class="fa fa-reply"></i> Reply</a>
                                                     </div>
                                                 </div>
-                                                <ul class="children">
-                                                    <li>
-                                                        <div class="comment">
-                                                            <div class="comment-author">
-                                                                <img src="images/demo/avatar.png" alt="Author">
-                                                                <a href="#" rel="external nofollow" class="comment-author-name">Amanda</a>
-                                                                <span class="comment-meta">March 17, 2015 at 18:45 AM</span>
-                                                            </div>
-                                                            <div class="comment-body">
-                                                                <p>Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae.</p>
-                                                                <a href="#" class="comment-reply"><i class="fa fa-reply"></i> Reply</a>
-                                                            </div>
-                                                        </div>
-                                                    </li>
-                                                    <li>
-                                                        <div class="comment">
-                                                            <div class="comment-author">
-                                                                <img src="images/demo/avatar.png" alt="Author">
-                                                                <a href="#" rel="external nofollow" class="comment-author-name">Sarah</a>
-                                                                <span class="comment-meta">March 17, 2015 at 18:45 AM</span>
-                                                            </div>
-                                                            <div class="comment-body">
-                                                                <p>Nulla fringilla massa a eros varius laoreet. Cras leo odio, ultrices et aliquam quis, convallis eu turpis.</p>
-                                                                <a href="#" class="comment-reply"><i class="fa fa-reply"></i> Reply</a>
-                                                            </div>
-                                                        </div>
-                                                    </li>
-                                                </ul>
                                             </li>
                                             <li>
                                                 <div class="comment">
                                                     <div class="comment-author">
-                                                        <img src="images/demo/avatar.png" alt="Author">
+                                                        <img src="/images/demo/avatar.png" alt="Author">
                                                         <a href="#" rel="external nofollow" class="comment-author-name">Amanda</a>
                                                         <span class="comment-meta">March 17, 2015 at 18:45 AM</span>
                                                     </div>
                                                     <div class="comment-body">
                                                         <p>Pellentesque suscipit cursus nibh. Aenean est ipsum, varius ac vulputate sed, auctor sed est. Morbi sed vulputate nulla. Praesent luctus felis augue, et porta massa luctus vitae. Ut eleifend ornare purus, non gravida elit ultrices vel.</p>
-                                                        <a href="#" class="comment-reply"><i class="fa fa-reply"></i> Reply</a>
                                                     </div>
                                                 </div>
                                             </li>
                                             <li>
                                                 <div class="comment">
                                                     <div class="comment-author">
-                                                        <img src="images/demo/avatar.png" alt="Author">
+                                                        <img src="/images/demo/avatar.png" alt="Author">
                                                         <a href="#" rel="external nofollow" class="comment-author-name">Casper</a>
                                                         <span class="comment-meta">March 17, 2015 at 18:45 AM</span>
                                                     </div>
                                                     <div class="comment-body">
                                                         <p>Cras leo odio, ultrices et aliquam quis, convallis eu turpis. Proin nec nisl eget tellus tempus maximus.</p>
-                                                        <a href="#" class="comment-reply"><i class="fa fa-reply"></i> Reply</a>
                                                     </div>
                                                 </div>
                                             </li>
@@ -155,29 +115,13 @@
 
                                     <div class="comment-form-body">
                                         <div class="row">
-                                            <form class="comment-form" action="http://example.org/">
-                                                <div class="col-md-6">
-
-                                                    <label for="author">Your name</label>
-                                                    <input id="author" type="text" placeholder="Your name" name="author">
-
-                                                </div>
-
-                                                <div class="col-md-6">
-                                                    <label for="email">Email</label>
-                                                    <input id="email" type="text" placeholder="Email" name="author">
-                                                </div>
-
-                                                <div class="col-md-12">
-                                                    <label for="email">Subject</label>
-                                                    <input id="email" type="text" placeholder="Subject" name="subject">
-                                                </div>
-
+                                            <form class="comment-form" action="{{ route('post.comment', ['post_id' => $post_id]) }}" method="post">
+                                                @csrf
                                                 <div class="col-md-12">
                                                     <label for="comment">Comment</label>
-                                                    <textarea name="comment" id="comment" cols="35" rows="5"></textarea>
+                                                    <textarea name="comment" id="comment" cols="35" rows="10"></textarea>
                                                 </div>
-
+                                                <p>{{ $post_id }}</p>
                                                 <div class="col-md-12"><input type="submit" value="Post Comment" class="submit-button" /></div>
                                             </form>
                                         </div>
@@ -317,15 +261,9 @@
                                 <div class="sidebar-content">
                                     <h4 class="sidebar-heading"><span>Tag cloud</span></h4>
                                     <div class="tag-cloud">
-                                        <a href="#">Fashion</a>
-                                        <a href="#">Design</a>
-                                        <a href="#">Architecture</a>
-                                        <a href="#">Gadgets</a>
-                                        <a href="#">Cars</a>
-                                        <a href="#">Music</a>
-                                        <a href="#">Recipe</a>
-                                        <a href="#">Lifestyle</a>
-                                        <a href="#">Travel</a>
+                                        @foreach($tags as $tag)
+                                            <a href="{{ Url::to('/tag/' . $tag->tagId) }}">{{ $tag->tagName }}</a>
+                                        @endforeach
                                     </div>
                                 </div>
 

@@ -60,11 +60,11 @@ class PostController extends Controller
         $post = DB::table('posts')->leftjoin('users', 'users.id', '=', 'posts.author')->where('posts.id', '=', $post_id)->first();
 
         $archives = DB::table('posts')->orderBy('id', 'DESC')->take(3)->get();
-
+        $tags = DB::table('tags')->get();
         $summernote = new Summernote;
         $summernote->content = $post->description;
 
-        return view('post/read', ['post' => $post, 'archives' => $archives], compact('summernote'));
+        return view('post/read', ['post' => $post, 'archives' => $archives, 'tags' => $tags, 'post_id' => $post_id], compact('summernote'));
     }
     
     public function sendSubscription(Request $request)

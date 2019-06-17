@@ -29,6 +29,7 @@ Route::get('/author/post/edit/{id}', 'HomeController@editPost')->name('post.edit
 Route::post('/author/post/edit/{id}', 'HomeController@updatePost')->name('post.update');
 Route::get('/author/post/delete/{id}', 'HomeController@deletePost')->name('post.delete');
 Route::get('/post/read/{post_id}', 'PostController@getFullPost')->name('post.read');
+Route::post('/post/read/{post_id}', 'HomeController@postComment')->name('post.comment');
 
 Route::get('article', 'ArticleController@index');
 Route::post('article', 'ArticleController@store');

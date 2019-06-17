@@ -84,11 +84,11 @@
                             <li><a href="{{ route('post.getform', ['id' => 1]) }}">Swift</a></li>
                             <li><a href="{{ route('post.getform', ['id' => 2]) }}">Java</a></li>
                             <li><a href="{{ route('post.getform', ['id' => 3]) }}">PHP</a></li>
-                            <li><a href="{{ route('post.getform', ['id' => 4]) }}">JavaScript</a></li>
+                            <li><a href="{{ route('post.getform', ['id' => 4]) }}">C/CPP</a></li>
                             <li><a href="{{ route('post.getform', ['id' => 5]) }}">C#</a></li>
-                            <li><a href="{{ route('post.getform', ['id' => 6]) }}">C/CPP</a></li>
+                            <li><a href="{{ route('post.getform', ['id' => 6]) }}">Ruby</a></li>
                             <li><a href="{{ route('post.getform', ['id' => 7]) }}">Python</a></li>
-                            <li><a href="{{ route('post.getform', ['id' => 8]) }}">Ruby</a></li>
+                            <li><a href="{{ route('post.getform', ['id' => 8]) }}">Java</a></li>
                             <li><a href="{{ route('post.getform', ['id' => 9]) }}">Objective-C</a></li>
                             <li><a href="{{ route('post.getform', ['id' => 10]) }}">SQL</a></li>
                         </ul>
