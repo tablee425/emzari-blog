@@ -5,24 +5,32 @@
 @endsection
 
 @section('content')
-    <div style="height: calc(100vh - 50px - 315px + 40px - 63px);margin-top: 63px;" class="d-flex justify-content-center align-items-center">
-        <div class="col-9 flex-column">
-            <div class="col-6 flex-column">
-                @if(Session::has('status') && Session::get('status') != 'SessionExpiredToken~13683432126848694534')
-                    <div style="font-size: 50px; font-weight: bold; color: #f4645f;">
-                        Thank You, {{ Session::get('status') }}
+    <div class="boxed">
+
+        <div class="container container-gutter">
+
+            @include('partials.header')
+
+            <div style="height: calc(100vh - 50px - 315px + 40px - 63px);margin-top: 63px;" class="d-flex justify-content-center align-items-center">
+                <div class="col-9 flex-column">
+                    <div class="col-6 flex-column">
+                        @if(Session::has('status') && Session::get('status') != 'SessionExpiredToken~13683432126848694534')
+                            <div style="font-size: 50px; font-weight: bold; color: #f4645f;">
+                                Thank You, {{ Session::get('status') }}
+                            </div>
+                            <div style="font-size: 25px; color: gray;margin-top: 10px;">
+                                Your subscription has been removed and you will never receive the new notification from our newsletter.
+                            </div>
+                        @else
+                            <div style="font-size: 50px; font-weight: bold; color: #f4645f;">
+                                Sorry
+                            </div>
+                            <div style="font-size: 25px; color: gray;margin-top: 10px;">
+                                Your unsubscription has been expired. Please try again.
+                            </div>
+                        @endif
                     </div>
-                    <div style="font-size: 25px; color: gray;margin-top: 10px;">
-                        Your subscription has been removed and you will never receive the new notification from our newsletter.
-                    </div>
-                @else
-                    <div style="font-size: 50px; font-weight: bold; color: #f4645f;">
-                        Sorry
-                    </div>
-                    <div style="font-size: 25px; color: gray;margin-top: 10px;">
-                        Your unsubscription has been expired. Please try again.
-                    </div>
-                @endif
+                </div>
             </div>
         </div>
     </div>

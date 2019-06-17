@@ -94,29 +94,30 @@
                         </ul>
                     </li>
                 @endguest
-                <li class="dropdown">
-                    <a href="index.html" class="dropdown-toggle" data-toggle="dropdown">Layout <b class="caret"></b></a>
-                    <ul class="dropdown-menu" role="menu">
-                        <li><a href="{{ route('index') }}">List</a></li>
-                        <li><a href="{{ route('index.grid') }}">Grid</a></li>
-                    </ul>
-                </li>
-                <li><a href="index-grid.html">Fashion</a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Features <b class="caret"></b></a>
-                    <ul class="dropdown-menu" role="menu">
-                        <li><a href="404.html">404 page</a></li>
-                        <li><a href="shortcodes.html">Shortcodes</a></li>
-                        <li><a href="post-video.html">Post with Video</a></li>
-                        <li><a href="about.html">Full Width Page</a></li>
-                        <li><a href="contact.html">Contact Form</a></li>
-                    </ul>
-                </li>
-                @guest
-                @else
-                    <li><a href="about.html">About</a></li>
-                @endguest
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="{{ route('subscribe') }}">Subscribe</a></li>
+{{--                <li class="dropdown">--}}
+{{--                    <a href="index.html" class="dropdown-toggle" data-toggle="dropdown">Layout <b class="caret"></b></a>--}}
+{{--                    <ul class="dropdown-menu" role="menu">--}}
+{{--                        <li><a href="{{ route('index') }}">List</a></li>--}}
+{{--                        <li><a href="{{ route('index.grid') }}">Grid</a></li>--}}
+{{--                    </ul>--}}
+{{--                </li>--}}
+{{--                <li><a href="index-grid.html">Fashion</a></li>--}}
+{{--                <li class="dropdown">--}}
+{{--                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Features <b class="caret"></b></a>--}}
+{{--                    <ul class="dropdown-menu" role="menu">--}}
+{{--                        <li><a href="404.html">404 page</a></li>--}}
+{{--                        <li><a href="shortcodes.html">Shortcodes</a></li>--}}
+{{--                        <li><a href="post-video.html">Post with Video</a></li>--}}
+{{--                        <li><a href="about.html">Full Width Page</a></li>--}}
+{{--                        <li><a href="contact.html">Contact Form</a></li>--}}
+{{--                    </ul>--}}
+{{--                </li>--}}
+{{--                @guest--}}
+{{--                @else--}}
+{{--                    <li><a href="about.html">About</a></li>--}}
+{{--                @endguest--}}
+{{--                <li><a href="contact.html">Contact</a></li>--}}
             </ul>
 
             <ul class="nav navbar-nav navbar-right">

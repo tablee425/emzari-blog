@@ -134,4 +134,8 @@ class PostController extends Controller
     public function emailnotification() {
         return view('email/notification');
     }
+    
+    public function getSubscribeForm() {
+        return view('subscribe/subscribe');
+    }
 }
