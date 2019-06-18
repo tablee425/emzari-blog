@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
 use mysql_xdevapi\Session;
+use Illuminate\Routing\UrlGenerator;
+
 
 class PostController extends Controller
 {

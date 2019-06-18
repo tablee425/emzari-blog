@@ -115,7 +115,7 @@ class HomeController extends Controller
                 'thumbnail' => $thumbnail,
                 'title' => $request->title,
                 'shortbody' => strip_tags($detail),
-                'link' => 'http://172.20.11.50/post/read/' . $new_id
+                'link' => env('APP_URL').'/post/read/' . $new_id
             );
             $emails = array();
             foreach ($subscribes as $subscribe_key => $subscribe) {

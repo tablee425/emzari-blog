@@ -16,7 +16,7 @@
             ------------------------------
         </div>
         <br>
-        <a href="http://172.20.11.50/subscribe/{{$token}}">http://172.20.11.50/subscribe/{{ $token }}</a>
+        <a href="{{env('APP_URL')}}/subscribe/{{$token}}">{{env('APP_URL')}}/subscribe/{{ $token }}</a>
         <br>
         <br>
         <div>
@@ -31,6 +31,6 @@
             ------------------------------
         </div>
         <br>
-        <a href="http://172.20.11.50/unsubscribe/{{$token}}">http://172.20.11.50/unsubscribe/{{ $token }}</a>
+        <a href="{{env('APP_URL')}}/unsubscribe/{{$token}}">{{env('APP_URL')}}/unsubscribe/{{ $token }}</a>
     </body>
 </html>

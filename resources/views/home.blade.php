@@ -210,7 +210,7 @@
 
                                     <h4 class="sidebar-heading"><span>About Us</span></h4>
 
-                                    <a href="post.html"><img src="images/about-me.jpg" alt="fashion" /></a>
+                                    <a href="post.html"><img src="/images/about-me.jpg" alt="fashion" /></a>
                                     <p>Meh synth Schlitz, tempor duis single-origin coffee ea next level ethnic fingerstache fanny pack nostrud. Photo booth anim 8-bit hella, PBR 3 wolf moon beard Helvetica.</p>
                                     <a href="post.html" class="more-button"><span class="read-more-button">READ MORE</span></a>
                                 </div>
@@ -264,7 +264,7 @@
                                     <h4 class="sidebar-heading"><span>{{ $post->tagName }}</span></h4>
                                     <div class="widget-post">
                                         <div class="widget-post-image">
-                                            <a href="post.html"><img src="images/demo/300x300-1.jpg" alt="fashion" /></a>
+                                            <a href="post.html"><img src="/images/demo/300x300-1.jpg" alt="fashion" /></a>
                                         </div>
                                         <div class="widget-post-entry">
                                             <h3 class="widget-post-title"><a href="post.html">Watch Top Brands and Agencies Live-Tweet</a></h3>
@@ -274,41 +274,11 @@
 
                                     <div class="widget-post">
                                         <div class="widget-post-image">
-                                            <a href="post.html"><img src="images/demo/300x300-5.jpg" alt="fashion" /></a>
+                                            <a href="post.html"><img src="/images/demo/300x300-5.jpg" alt="fashion" /></a>
                                         </div>
                                         <div class="widget-post-entry">
                                             <h3 class="widget-post-title"><a href="post.html">The Influences of Modern Minimalism</a></h3>
                                             <div class="widget-post-meta"><i class="fa fa-clock-o"></i> 15. JANUARY 2015 <span class="widget-post-comments"><i class="fa fa-comments"></i>6</span></div>
-                                        </div>
-                                    </div>
-
-                                    <div class="widget-post">
-                                        <div class="widget-post-image">
-                                            <a href="post.html"><img src="images/demo/300x300-7.jpg" alt="fashion" /></a>
-                                        </div>
-                                        <div class="widget-post-entry">
-                                            <h3 class="widget-post-title"><a href="post.html">Coors Light Gets New Look, Miller Lite Targets Biculturals</a></h3>
-                                            <div class="widget-post-meta"><i class="fa fa-clock-o"></i> 15. JANUARY 2015</div>
-                                        </div>
-                                    </div>
-
-                                    <div class="widget-post">
-                                        <div class="widget-post-image">
-                                            <a href="post.html"><img src="images/demo/300x300-6.jpg" alt="fashion" /></a>
-                                        </div>
-                                        <div class="widget-post-entry">
-                                            <h3 class="widget-post-title"><a href="post.html">Facebook to Start Telling Brands Who's Talking About What Topics</a></h3>
-                                            <div class="widget-post-meta"><i class="fa fa-clock-o"></i> 15. JANUARY 2015 <span class="widget-post-comments"><i class="fa fa-comments"></i>14</span></div>
-                                        </div>
-                                    </div>
-
-                                    <div class="widget-post">
-                                        <div class="widget-post-image">
-                                            <a href="post.html"><img src="images/demo/300x300-3.jpg" alt="fashion" /></a>
-                                        </div>
-                                        <div class="widget-post-entry">
-                                            <h3 class="widget-post-title"><a href="post.html">Notegraphy, Graphic Design Meet Note-Taking</a></h3>
-                                            <div class="widget-post-meta"><i class="fa fa-clock-o"></i> 15. JANUARY 2015</div>
                                         </div>
                                     </div>
 
@@ -326,15 +296,6 @@
                                     </div>
                                     <div class="lcomments-item">
                                         <a href="#">Jeremy Clarkson</a> on <a href="post.html">Five centuries, but also the nation</a>
-                                    </div>
-                                    <div class="lcomments-item">
-                                        <a href="#">John Doe</a> on <a href="post.html">12 Animated Magnets from Fictional Places</a>
-                                    </div>
-                                    <div class="lcomments-item">
-                                        <a href="#">Claire</a> on <a href="post.html">Wonderful Pencil Drawings by Stefan</a>
-                                    </div>
-                                    <div class="lcomments-item">
-                                        <a href="#">Sarah Lee</a> on <a href="post.html">Five centuries, but also the nation</a>
                                     </div>
                                 </div>
 
