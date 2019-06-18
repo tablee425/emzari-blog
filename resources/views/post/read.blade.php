@@ -32,7 +32,7 @@
 
                                         <div class="post-entry">
 
-                                            <div class="post-meta"><span class="post-category"><a href="#">Fashion</a></span></div>
+                                            <div class="post-meta"><span class="post-category"><a href="#">{{ $tag->tagName }}</a></span></div>
                                             <div class="divider"></div>
                                             <h1><a href="portfolio-item.html">{{ $post->title }}</a></h1>
                                             <div class="post-meta">Posted on <span class="post-time">February 23, 2015</span> by <span class="post-author"><a href="post.html">Different Themes</a></span></div>
@@ -71,42 +71,20 @@
                                     <h4 class="main-heading"><span>Comments</span></h4>
                                     <div class="comments">
                                         <ul class="comment-list">
+                                            @foreach($comments as $comment)
                                             <li>
                                                 <div class="comment">
                                                     <div class="comment-author">
                                                         <img src="/images/demo/avatar.png" alt="Author">
-                                                        <a href="#" rel="external nofollow" class="comment-author-name">James</a>
-                                                        <span class="comment-meta">March 17, 2015 at 18:45 AM</span>
+                                                        <a href="#" rel="external nofollow" class="comment-author-name">{{ $comment->name }}</a>
+                                                        <span class="comment-meta">{{ date("F d, Y", strtotime($comment->created_at)) }} AT {{ date("G:i:s A", strtotime($comment->created_at)) }}</span>
                                                     </div>
                                                     <div class="comment-body">
-                                                        <p>Maecenas lobortis ante leo, ac rhoncus nisl elementum et. Proin quis ligula pulvinar, commodo enim eget, lacinia dolor. Nulla lacinia viverra nulla a interdum.</p>
+                                                        <p>{{ $comment->comment }}</p>
                                                     </div>
                                                 </div>
                                             </li>
-                                            <li>
-                                                <div class="comment">
-                                                    <div class="comment-author">
-                                                        <img src="/images/demo/avatar.png" alt="Author">
-                                                        <a href="#" rel="external nofollow" class="comment-author-name">Amanda</a>
-                                                        <span class="comment-meta">March 17, 2015 at 18:45 AM</span>
-                                                    </div>
-                                                    <div class="comment-body">
-                                                        <p>Pellentesque suscipit cursus nibh. Aenean est ipsum, varius ac vulputate sed, auctor sed est. Morbi sed vulputate nulla. Praesent luctus felis augue, et porta massa luctus vitae. Ut eleifend ornare purus, non gravida elit ultrices vel.</p>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="comment">
-                                                    <div class="comment-author">
-                                                        <img src="/images/demo/avatar.png" alt="Author">
-                                                        <a href="#" rel="external nofollow" class="comment-author-name">Casper</a>
-                                                        <span class="comment-meta">March 17, 2015 at 18:45 AM</span>
-                                                    </div>
-                                                    <div class="comment-body">
-                                                        <p>Cras leo odio, ultrices et aliquam quis, convallis eu turpis. Proin nec nisl eget tellus tempus maximus.</p>
-                                                    </div>
-                                                </div>
-                                            </li>
+                                            @endforeach
                                         </ul>
                                     </div>
 
@@ -121,8 +99,11 @@
                                                     <label for="comment">Comment</label>
                                                     <textarea name="comment" id="comment" cols="35" rows="10"></textarea>
                                                 </div>
-                                                <p>{{ $post_id }}</p>
-                                                <div class="col-md-12"><input type="submit" value="Post Comment" class="submit-button" /></div>
+                                                @guest
+                                                    <div class="col-md-12"><input type="submit" value="Login To Post Comment" class="submit-button" /></div>
+                                                @else
+                                                    <div class="col-md-12"><input type="submit" value="Post Comment" class="submit-button" /></div>
+                                                @endguest
                                             </form>
                                         </div>
                                     </div>
@@ -175,7 +156,7 @@
                             <div class="sidebar-module">
 
                                 <div class="sidebar-content">
-                                    <h4 class="sidebar-heading"><span>Fashion</span></h4>
+                                    <h4 class="sidebar-heading"><span>{{ $tag->tagName }}</span></h4>
                                     <div class="widget-post">
                                         <div class="widget-post-image">
                                             <a href="post.html"><img src="images/demo/300x300-1.jpg" alt="fashion" /></a>

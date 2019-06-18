@@ -156,10 +156,11 @@
                 <form action="{{route('post.createform')}}" method="POST">
                     @csrf
                     <input style="height: 0;display: none;" value="{{ $tagId }}" name="tagId" />
+                    <input style="height: 0;display: none;" value="{{ $tagName }}" name="tagName" />
                     <label style="margin-top: 20px; color: darkslategrey;text-transform: uppercase;">New &nbsp {{ $tagName }} &nbsp POST</label>
                     <br/>
                     <label style="margin-top: 20px;">Title</label>
-                    <input id="title" type="text" required name="title" style="width: 100%;">
+                    <input id="title" type="text" required name="title" style="width: 100%;text-transform: none;">
                     <label style="margin-top: 20px;">Description</label>
                     <textarea name="summernoteInput" class="summernote"></textarea>
                     <div style="margin-top: 20px; display: grid; width: 100%;">

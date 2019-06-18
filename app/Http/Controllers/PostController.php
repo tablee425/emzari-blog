@@ -63,8 +63,10 @@ class PostController extends Controller
         $tags = DB::table('tags')->get();
         $summernote = new Summernote;
         $summernote->content = $post->description;
+        $tag = DB::table('tags')->where('tagId', $post->tag)->get();
+        $comments = DB::table('comments')->where('post_id', $post_id)->get();
 
-        return view('post/read', ['post' => $post, 'archives' => $archives, 'tags' => $tags, 'post_id' => $post_id], compact('summernote'));
+        return view('post/read', ['post' => $post, 'archives' => $archives, 'tags' => $tags, 'post_id' => $post_id, 'comments' => $comments, 'tag' => $tag[0]], compact('summernote'));
     }
     
     public function sendSubscription(Request $request)

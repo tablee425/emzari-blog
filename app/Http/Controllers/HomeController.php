@@ -6,6 +6,7 @@ use App\Subscribe;
 use App\Summernote;
 use Illuminate\Http\Request;
 use App\Post;
+use App\Comment;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
@@ -103,6 +104,7 @@ class HomeController extends Controller
         $post->image = $thumbnail;
         $post->author = $author;
         $post->tag = $request->tagId;
+        $post->tagName = $request->tagName;
         $post->save();
         $new_id = $post->id;
         
@@ -249,7 +251,13 @@ class HomeController extends Controller
     }
     
     public function postComment(Request $request, $post_id) {
-        echo $post_id;
-        die;
+        $comment = new Comment;
+        $comment->post_id = $post_id;
+        $comment->comment = $request->comment;
+        $comment->auth = Auth::user()->id;
+        $comment->name = Auth::user()->name;
+        $comment->email = Auth::user()->email;
+        $comment->save();
+        return redirect()->route('post.read', ['post_id' => $post_id]);
     }
 }

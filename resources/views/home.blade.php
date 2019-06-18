@@ -160,7 +160,7 @@
 
                                             <div class="blog-post-body">
 
-                                                <div class="post-meta"><span class="post-category"><a href="#">Fashion</a></span></div>
+                                                <div class="post-meta"><span class="post-category"><a href="#">{{ $post->tagName }}</a></span></div>
                                                 <div class="divider"></div>
                                                 <h2 class="title"><a href="{{ route('post.read', ['post_id' => $post->id]) }}">{{ $post->title }}</a></h2>
                                                 <div class="post-meta">Posted on <span class="post-time">{{ date("M d, Y", strtotime($post->created_at)) }}</span> by <span class="post-author"><a href="post.html">{{ $post->name }}</a></span></div>
@@ -261,7 +261,7 @@
                             <div class="sidebar-module">
 
                                 <div class="sidebar-content">
-                                    <h4 class="sidebar-heading"><span>Fashion</span></h4>
+                                    <h4 class="sidebar-heading"><span>{{ $post->tagName }}</span></h4>
                                     <div class="widget-post">
                                         <div class="widget-post-image">
                                             <a href="post.html"><img src="images/demo/300x300-1.jpg" alt="fashion" /></a>
