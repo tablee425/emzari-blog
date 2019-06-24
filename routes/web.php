@@ -31,9 +31,6 @@ Route::get('/author/post/delete/{id}', 'HomeController@deletePost')->name('post.
 Route::get('/post/read/{post_id}', 'PostController@getFullPost')->name('post.read');
 Route::post('/post/read/{post_id}', 'HomeController@postComment')->name('post.comment');
 
-Route::get('article', 'ArticleController@index');
-Route::post('article', 'ArticleController@store');
-
 Route::get('/subscribe', 'PostController@getSubscribeForm')->name('subscribe');
 Route::post('/subscribed', 'PostController@sendSubscription')->name('post.send_subscription');
 Route::get('/confirmed', 'PostController@confirmed')->name('subscription.confirmed');
