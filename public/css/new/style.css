@@ -1,58 +1,8 @@
-/*------------------------------------------------------------------
-[Master Stylesheet]
-
-Project:	Firenze Blog
-Version:	1.1
-Last change:	17/02/2015 [fixed Float bug, vf]
-Designed by:	Different Themes
-Primary use:	Firenze
-
-[Table of contents]
-
-1. General
-2. Header
-3. Navigation / #Bootstrap navbar
-3.1. Top Bar
-3.2. Main Menu
-4. Slider
-5. Main content
-6. Post item
-7. Sidebar
-8. Footer
-9. Buttons
-
-[Color codes]
-
-Background:	#e9eaed (container background)
-Footer:		#141414 (black)
-
-modules:
-Background:	  #ffffff (background inside modules)
-
-Social icons, Tags, etc. backgorund: #5f9ea0 (green)
-
-Titles color:	#343434 (dark gray)
-hover color:	#BF382B (red)
--------------------------------------------------------------------*/
-
-/*--------------------
-Import Google Fonts
---------------------*/
-
-/* main font for heading, etc. */
 @import url(http://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700,900);
-/* font for post time & author details */
 @import url(http://fonts.googleapis.com/css?family=Crimson+Text:400italic);
-/* font for modules heading */
 @import url(http://fonts.googleapis.com/css?family=Oswald:300,400,500,600,700,900);
-/* optional font */
 @import url(http://fonts.googleapis.com/css?family=Roboto:300,400,500,600,700,900);
-/* font for text, tags */
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,600,700,300);
-
-/*--------------------
-Reset Bootstrap default values
---------------------*/
 
 @media (min-width: 1200px) {
 .container {
@@ -82,10 +32,6 @@ Reset Bootstrap default values
 }
 }
 
-/*--------------------
-Define colors
---------------------*/
-
 ::selection
 {
 background:#5F9EA0;
@@ -93,9 +39,6 @@ color:#fff;
 }
 ::-moz-selection
 
-/*--------------------
-1. General
---------------------*/
 html {
 	height: 100%;
 }
@@ -193,7 +136,6 @@ textarea {
 }
 
 .boxed:not(.active) {
-/*	background: #e9eaed; */
 }
 
 .active.boxed {
@@ -208,10 +150,6 @@ textarea {
     border-left: 1px solid #E0E0E0;
     border-right: 1px solid #E0E0E0;
 }
-
-/*--------------------
-2. Header
---------------------*/
 
 .logo {
     padding: 0 0 0 0;
@@ -247,11 +185,6 @@ textarea {
       padding-right: 30px;
     }
 }
-
-/*--------------------
-3. Navigation
-3.1. Top Navigation
---------------------*/
 
 .top-bar {
     top:0;
@@ -293,10 +226,6 @@ textarea {
     color: #BF382B;
 }
 
-/*--------------------
-3.2. Main Navigation
---------------------*/
-
 .navbar-default {
   background-color: #FFFFFF;
   border-color: transparent;
@@ -325,11 +254,9 @@ padding-top: 20px;
 }
 
 .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus, .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
-/*    background-color: #5F9EA0; */
     color: #BF382B !important;
 }
 
-/* mobile version */
 .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
     background-color: transparent;
 }
@@ -367,10 +294,6 @@ padding-top: 20px;
     -webkit-font-smoothing: antialiased;
 }
 
-/*--------------------
-Menu Search Box
---------------------*/
-
 .dropdown-menu.searchbox {
     position: absolute;
     left: auto;
@@ -402,19 +325,11 @@ Menu Search Box
     background: #658BCD;
 }
 
-/*--------------------
-4. Slider
---------------------*/
-
 .slider {
     position: relative;
     overflow: hidden;
     padding-bottom: 50px;
 }
-
-/*---------------
-Milo effect for slider items
----------------*/
 
 figure.effect-milo {
 	background: #2e5d5a;
@@ -457,7 +372,6 @@ figure.effect-milo:hover p {
 	transform: translate3d(0,0,0);
 }
 
-/* -- Slider Items -- */
 .slider-left {
     padding-right: 3px;
 }
@@ -471,7 +385,6 @@ figure.effect-milo:hover p {
     padding-bottom: 3px;
 }
 
-/* Common style */
 .slider-item figure {
 	position: relative;
 	overflow: hidden;
@@ -504,8 +417,6 @@ figure.effect-milo:hover p {
 	height: 100%;
 }
 
-/* Anchor will cover the whole item by default */
-/* For some effects it will show as a button */
 .slider-item figure figcaption > a {
 	text-indent: 200%;
 	white-space: nowrap;
@@ -562,13 +473,6 @@ and (max-width : 480px) {
     }
 }
 
-/*----------------------------------
-5. Content
----------------------------------- */
-
-/* Main header title
----------------------------------- */
-
 .main-heading {
   overflow: hidden;
   text-align: center;
@@ -600,8 +504,6 @@ and (max-width : 480px) {
     left: 100%;
 }
 
-/* Grid-post style
----------------------------------- */
 .grid-post {
 	background: #fff;
 	margin-bottom: 40px;
@@ -724,8 +626,6 @@ font-family: 'Open Sans', sans-serif;
 	transition: all 0.3s ease-in-out;
 }
 
-/* Blog post style
----------------------------------- */
 .blog-post {
 	background: #fff;
 	margin-bottom: 70px;
@@ -866,8 +766,6 @@ font-family: 'Open Sans', sans-serif;
     border-color:#B43F42;
 }
 
-/* List Post style
----------------------------------- */
 .list-post {
 	background: #fff;
 	margin-bottom: 50px;
@@ -1008,10 +906,6 @@ and (max-width : 480px) {
     border-color:#B43F42;
 }
 
-/*--------------------
-6. Blog post entry
---------------------*/
-
 .post-entry {
 	padding: 0px 35px 25px 35px;
     background-color: #fff;
@@ -1066,7 +960,6 @@ blockquote cite:before {
     content: "\2014 \2009";
 }
 
-/*-- Comments --*/
 .comments {
     padding: 30px;
     background: #fff;
@@ -1143,7 +1036,6 @@ blockquote cite:before {
     color: #BF382B;
 }
 
-/*-- Comment form --*/
 .comment-form-body {
     padding: 20px 20px;
     background: #FFFFFF;
@@ -1199,8 +1091,6 @@ blockquote cite:before {
     border-color:#B43F42;
 }
 
-/* Author
----------------------------------- */
 .author {
 	background: #fff;
 	margin-bottom: 30px;
@@ -1284,7 +1174,6 @@ and (max-width : 480px) {
     padding-top: 10px;
 }
 
-/** Social Icons **/
 .author-social {
     text-align:left;
 }
@@ -1320,8 +1209,6 @@ and (max-width : 480px) {
     color: #fff;
 }
 
-/* Related Articles
----------------------------------- */
 .related-article {
 	cursor: pointer;
 	background: #fff;
@@ -1362,8 +1249,6 @@ and (max-width : 480px) {
 
 }
 
-/* -- contacts iframe map --*/
-
 .iframe-rwd  {
     position: relative;
     padding-bottom: 65.25%;
@@ -1380,9 +1265,6 @@ and (max-width : 480px) {
     height: 100%;
 }
 
-/*--------------------
-7. Sidebar
---------------------*/
 @media (min-width: 979px) {
   #sidebar.affix-top {
     position: static;
@@ -1478,7 +1360,6 @@ and (max-width : 480px) {
     border: 1px solid transparent;
     border-radius: 90px;
     padding: 6px 10px;
-/*	margin: 0 3px; */
 	line-height:37px;
 	text-transform: uppercase;
 }
@@ -1487,8 +1368,6 @@ and (max-width : 480px) {
     opacity: 0.7;
 }
 
-/* Sidebar Social Icons
----------------------------------- */
 .widget-social {
     text-align:left;
 }
@@ -1519,8 +1398,6 @@ and (max-width : 480px) {
     opacity:0.7;
 }
 
-/* Sidebar instagram
----------------------------------- */
 .widget-instagram {
     padding: 0px;
 }
@@ -1544,8 +1421,6 @@ and (max-width : 480px) {
     opacity:.80;
 }
 
-/* Latest Comments Item
----------------------------------- */
 .lcomments-item {
     margin: 0 0 10px 0;
     border-bottom: dotted 1px #D9D9D9;
@@ -1573,8 +1448,6 @@ and (max-width : 480px) {
     color: #BF382B;
 }
 
-/* Sidebar widget articles style 1
----------------------------------- */
 .widget-post {
     position: relative;
     margin: 0 0 20px 0;
@@ -1604,7 +1477,6 @@ and (max-width : 480px) {
     float: left;
     margin: 0 20px 0 0;
     background: #5f9ea0;
-    /* border: 2px solid #666; */
     color: #FFF;
     text-align: center;
     font-size: 19px;
@@ -1623,7 +1495,6 @@ and (max-width : 480px) {
     line-height: 1.7;
     letter-spacing: 0.3px;
     color: #545452;
-    /* text-transform: uppercase; */
 }
 .widget-post-title a {
     color: #565673;
@@ -1646,8 +1517,7 @@ and (max-width : 480px) {
 .widget-post-meta .widget-post-comments {
 	padding-left: 10px;
 }
-/* Main page Instagram Widget
----------------------------------- */
+
 .widget-insta {
 	border: 1px solid #dfe0e4;
 	background: #FFF;
@@ -1682,8 +1552,6 @@ and (max-width : 480px) {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
-/* 404 page
----------------------------------- */
 .page-404 {
     text-align: center;
     margin-bottom: 50px
@@ -1693,10 +1561,6 @@ and (max-width : 480px) {
     font-weight: 500;
     color: #ddd;
 }
-
-/*--------------------
-8. Footer
---------------------*/
 
 .footer-gallery-title {
     overflow: hidden;
@@ -1800,12 +1664,6 @@ and (max-width : 480px) {
     background-color:#141414;
 }
 
-/*--------------------
-9. Buttons
---------------------*/
-
-/* Back to top button
----------------------------------- */
 #back-top {
 	position: fixed;
 	bottom: 30px;
@@ -1820,12 +1678,10 @@ and (max-width : 480px) {
 	text-transform: uppercase;
 	text-decoration: none;
 	color: #FFFFFF;
-	/* background color transition */
 	-webkit-transition: 1s;
 	-moz-transition: 1s;
 	transition: 1s;
     background: #A9A9B1;
-	/* background color transition */
 	-webkit-transition: 1s;
 	-moz-transition: 1s;
 	transition: 1s;
@@ -1833,7 +1689,7 @@ and (max-width : 480px) {
 #back-top a:hover {
 	background: #B80600;
 }
-/* arrow icon (span tag) */
+
 #back-top i {
     margin-top: 15px;
     font-size: 28px;
@@ -1857,8 +1713,6 @@ and (max-width : 480px) {
 }
 }
 
-/* Read More Button, Share button
----------------------------------- */
 .more-button {
     text-align:center;
     display:block
