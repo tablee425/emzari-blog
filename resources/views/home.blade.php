@@ -262,7 +262,7 @@
 
                                 <div class="sidebar-content">
 {{--                                    <h4 class="sidebar-heading"><span>{{ $post->tagName }}</span></h4>--}}
-                                    <h4 class="sidebar-heading"><span>{{ '' }}</span></h4>--}}
+                                    <h4 class="sidebar-heading"><span>{{ 'Test' }}</span></h4>
                                     <div class="widget-post">
                                         <div class="widget-post-image">
                                             <a href="post.html"><img src="/images/demo/300x300-1.jpg" alt="fashion" /></a>
